@@ -4,10 +4,10 @@
 <html>
 <head>
     <title><dec:title default="Trang chủ"/></title>
-    <link href="<c:url value="/template/assets/css/bootstrap.css"/>" type="text/css" rel="stylesheet" />
-    <link href="<c:url value='/template/assets/css/style.css'/>" type="text/css" rel="stylesheet" />
-    <link href="<c:url value='/template/assets/font-awesome/css/font-awesome.css'/>" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" href="<c:url value='/template/assets/ico/favicon.ico'/>">
+    <link href="<c:url value="/template/web/css/bootstrap.css"/>" type="text/css" rel="stylesheet" />
+    <link href="<c:url value='/template/web/css/style.css'/>" type="text/css" rel="stylesheet" />
+    <link href="<c:url value='/template/web/font-awesome/css/font-awesome.css'/>" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="<c:url value='/template/web/ico/favicon.ico'/>">
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -45,11 +45,11 @@
     <div class="copyright">
         <div class="container">
             <p class="pull-right">
-                <a href="#"><img src="assets/img/maestro.png" alt="payment"></a>
-                <a href="#"><img src="assets/img/mc.png" alt="payment"></a>
-                <a href="#"><img src="assets/img/pp.png" alt="payment"></a>
-                <a href="#"><img src="assets/img/visa.png" alt="payment"></a>
-                <a href="#"><img src="assets/img/disc.png" alt="payment"></a>
+                <a href="#"><img src="web/img/maestro.png" alt="payment"></a>
+                <a href="#"><img src="web/img/mc.png" alt="payment"></a>
+                <a href="#"><img src="web/img/pp.png" alt="payment"></a>
+                <a href="#"><img src="web/img/visa.png" alt="payment"></a>
+                <a href="#"><img src="web/img/disc.png" alt="payment"></a>
             </p>
             <span>Copyright &copy; 2013<br> bootstrap ecommerce shopping template</span>
         </div>
@@ -57,10 +57,10 @@
     <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
 
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<c:url value='/template/assets/js/jquery.js'/>"></script>
-    <script src="<c:url value='/template/assets/js/bootstrap.min.js'/>"></script>
-    <script src="<c:url value='/template/assets/js/jquery.easing-1.3.min.js'/>"></script>
-    <script src="<c:url value='/template/assets/js/jquery.scrollTo-1.4.3.1-min.js'/>"></script>
-    <script src="<c:url value='/template/assets/js/shop.js'/>"></script>
+    <script src="<c:url value='/template/web/js/jquery.js'/>"></script>
+    <script src="<c:url value='/template/web/js/bootstrap.min.js'/>"></script>
+    <script src="<c:url value='/template/web/js/jquery.easing-1.3.min.js'/>"></script>
+    <script src="<c:url value='/template/web/js/jquery.scrollTo-1.4.3.1-min.js'/>"></script>
+    <script src="<c:url value='/template/web/js/shop.js'/>"></script>
 </body>
 </html>

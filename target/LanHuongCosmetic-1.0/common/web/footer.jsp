@@ -1,4 +1,6 @@
-<!-- Footer -->
+<!--
+Footer
+-->
 <footer class="footer">
     <div class="row-fluid">
         <div class="span2">

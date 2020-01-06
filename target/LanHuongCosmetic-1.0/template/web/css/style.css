@@ -49,7 +49,7 @@ hr.soften {margin: 8px 0;background: #DDD;}
 .carousel-control.right{right: -15600px;}
 .carousel:hover .carousel-control.right{right: 8px; left: auto;}
 .carousel:hover .carousel-control.left{left: 8px;}
-.alignR{text-align:right;}
+.alignR{text-align:right; float: right;}
 .control-label.alignL, .alignL{text-align:left;}
 .loginFrm{ margin-bottom:8px;}
 .loginFrm .control-group{padding:8px 14px 0; margin-bottom:0 }

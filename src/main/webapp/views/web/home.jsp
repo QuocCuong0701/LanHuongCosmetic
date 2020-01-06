@@ -1,14 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@include file="/common/taglib.jsp" %>
-<!DOCTYPE html>
+<%@include file="/common/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Trang chủ</title>
 </head>
 <body>
-<!--
-Body Section
--->
 <div class="row">
     <div id="sidebar" class="span3">
         <div class="well well-small">
@@ -22,12 +19,9 @@ Body Section
                 <li><a href="products.html"><span class="icon-chevron-right"></span>Vintage & Antique</a></li>
                 <li><a href="products.html"><span class="icon-chevron-right"></span>Loose Diamonds </a></li>
                 <li><a href="products.html"><span class="icon-chevron-right"></span>Loose Beads</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a>
-                </li>
+                <li><a href="products.html"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
                 <li style="border:0"> &nbsp;</li>
-                <li><a class="totalInCart" href="cart.html"><strong>Total Amount <span
-                        class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a>
-                </li>
+                <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
             </ul>
         </div>
 
@@ -37,8 +31,7 @@ Body Section
                 only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
             </p>
         </div>
-        <div class="well well-small"><a href="#"><img src="assets/img/paypal.jpg" alt="payment method paypal"></a>
-        </div>
+        <div class="well well-small" ><a href="#"><img src="assets/img/paypal.jpg" alt="payment method paypal"></a></div>
 
         <a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
         <br>
@@ -46,39 +39,30 @@ Body Section
         <ul class="nav nav-list promowrapper">
             <li>
                 <div class="thumbnail">
-                    <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                            class="icon-search"></span> QUICK VIEW</a>
+                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
                     <img src="assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
                     <div class="caption">
-                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span
-                                class="pull-right">$22.00</span>
-                        </h4>
+                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
                     </div>
                 </div>
             </li>
             <li style="border:0"> &nbsp;</li>
             <li>
                 <div class="thumbnail">
-                    <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                            class="icon-search"></span> QUICK VIEW</a>
+                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
                     <img src="assets/img/shopping-cart-template.png" alt="shopping cart template">
                     <div class="caption">
-                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span
-                                class="pull-right">$22.00</span>
-                        </h4>
+                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
                     </div>
                 </div>
             </li>
             <li style="border:0"> &nbsp;</li>
             <li>
                 <div class="thumbnail">
-                    <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                            class="icon-search"></span> QUICK VIEW</a>
+                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
                     <img src="assets/img/bootstrap-template.png" alt="bootstrap template">
                     <div class="caption">
-                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span
-                                class="pull-right">$22.00</span>
-                        </h4>
+                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
                     </div>
                 </div>
             </li>
@@ -90,8 +74,7 @@ Body Section
             <div id="myCarousel" class="carousel slide homCar">
                 <div class="carousel-inner">
                     <div class="item">
-                        <img style="width:100%" src="assets/img/bootstrap_free-ecommerce.png"
-                             alt="bootstrap ecommerce templates">
+                        <img style="width:100%" src="assets/img/bootstrap_free-ecommerce.png" alt="bootstrap ecommerce templates">
                         <div class="carousel-caption">
                             <h4>Bootstrap shopping cart</h4>
                             <p><span>Very clean simple to use</span></p>
@@ -136,34 +119,29 @@ Body Section
                             <ul class="thumbnails">
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                                class="icon-search"></span> QUICK VIEW</a>
+                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
                                         <a href="#" class="tag"></a>
-                                        <a href="product_details.html"><img src="assets/img/bootstrap-ring.png"
-                                                                            alt="bootstrap-ring"></a>
+                                        <a href="product_details.html"><img src="assets/img/bootstrap-ring.png" alt="bootstrap-ring"></a>
                                     </div>
                                 </li>
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                                class="icon-search"></span> QUICK VIEW</a>
+                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
                                         <a href="#" class="tag"></a>
-                                        <a href="product_details.html"><img src="assets/img/i.jpg" alt=""></a>
+                                        <a  href="product_details.html"><img src="assets/img/i.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                                class="icon-search"></span> QUICK VIEW</a>
+                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
                                         <a href="#" class="tag"></a>
-                                        <a href="product_details.html"><img src="assets/img/g.jpg" alt=""></a>
+                                        <a  href="product_details.html"><img src="assets/img/g.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                                class="icon-search"></span> QUICK VIEW</a>
-                                        <a href="product_details.html"><img src="assets/img/s.png" alt=""></a>
+                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                        <a  href="product_details.html"><img src="assets/img/s.png" alt=""></a>
                                     </div>
                                 </li>
                             </ul>
@@ -172,30 +150,26 @@ Body Section
                             <ul class="thumbnails">
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                                class="icon-search"></span> QUICK VIEW</a>
-                                        <a href="product_details.html"><img src="assets/img/i.jpg" alt=""></a>
+                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                        <a  href="product_details.html"><img src="assets/img/i.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                                class="icon-search"></span> QUICK VIEW</a>
-                                        <a href="product_details.html"><img src="assets/img/f.jpg" alt=""></a>
+                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                        <a  href="product_details.html"><img src="assets/img/f.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                                class="icon-search"></span> QUICK VIEW</a>
-                                        <a href="product_details.html"><img src="assets/img/h.jpg" alt=""></a>
+                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                        <a  href="product_details.html"><img src="assets/img/h.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                                class="icon-search"></span> QUICK VIEW</a>
-                                        <a href="product_details.html"><img src="assets/img/j.jpg" alt=""></a>
+                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                        <a  href="product_details.html"><img src="assets/img/j.jpg" alt=""></a>
                                     </div>
                                 </li>
                             </ul>
@@ -210,8 +184,7 @@ Body Section
                     <li class="span4">
                         <div class="thumbnail">
 
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
                             <a href="product_details.html"><img src="assets/img/b.jpg" alt=""></a>
                             <div class="caption cntr">
                                 <p>Manicure & Pedicure</p>
@@ -227,8 +200,7 @@ Body Section
                     </li>
                     <li class="span4">
                         <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
                             <a href="product_details.html"><img src="assets/img/c.jpg" alt=""></a>
                             <div class="caption cntr">
                                 <p>Manicure & Pedicure</p>
@@ -244,8 +216,7 @@ Body Section
                     </li>
                     <li class="span4">
                         <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
                             <a href="product_details.html"><img src="assets/img/a.jpg" alt=""></a>
                             <div class="caption cntr">
                                 <p>Manicure & Pedicure</p>
@@ -266,21 +237,18 @@ Body Section
         Featured Products
         -->
         <div class="well well-small">
-            <h3><a class="btn btn-mini pull-right" href="products.html" title="View more">VIew More<span
-                    class="icon-plus"></span></a> Featured Products </h3>
+            <h3><a class="btn btn-mini pull-right" href="products.html" title="View more">VIew More<span class="icon-plus"></span></a> Featured Products  </h3>
             <hr class="soften"/>
             <div class="row-fluid">
                 <ul class="thumbnails">
                     <li class="span4">
                         <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                    class="icon-search"></span> QUICK VIEW</a>
-                            <a href="product_details.html"><img src="assets/img/d.jpg" alt=""></a>
+                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                            <a  href="product_details.html"><img src="assets/img/d.jpg" alt=""></a>
                             <div class="caption">
                                 <h5>Manicure & Pedicure</h5>
                                 <h4>
-                                    <a class="defaultBtn" href="product_details.html" title="Click to view"><span
-                                            class="icon-zoom-in"></span></a>
+                                    <a class="defaultBtn" href="product_details.html" title="Click to view"><span class="icon-zoom-in"></span></a>
                                     <a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
                                     <span class="pull-right">$22.00</span>
                                 </h4>
@@ -289,14 +257,12 @@ Body Section
                     </li>
                     <li class="span4">
                         <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                    class="icon-search"></span> QUICK VIEW</a>
-                            <a href="product_details.html"><img src="assets/img/e.jpg" alt=""></a>
+                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                            <a  href="product_details.html"><img src="assets/img/e.jpg" alt=""></a>
                             <div class="caption">
                                 <h5>Manicure & Pedicure</h5>
                                 <h4>
-                                    <a class="defaultBtn" href="product_details.html" title="Click to view"><span
-                                            class="icon-zoom-in"></span></a>
+                                    <a class="defaultBtn" href="product_details.html" title="Click to view"><span class="icon-zoom-in"></span></a>
                                     <a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
                                     <span class="pull-right">$22.00</span>
                                 </h4>
@@ -305,14 +271,12 @@ Body Section
                     </li>
                     <li class="span4">
                         <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                                    class="icon-search"></span> QUICK VIEW</a>
-                            <a href="product_details.html"><img src="assets/img/f.jpg" alt=""/></a>
+                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                            <a  href="product_details.html"><img src="assets/img/f.jpg" alt=""/></a>
                             <div class="caption">
                                 <h5>Manicure & Pedicure</h5>
                                 <h4>
-                                    <a class="defaultBtn" href="product_details.html" title="Click to view"><span
-                                            class="icon-zoom-in"></span></a>
+                                    <a class="defaultBtn" href="product_details.html" title="Click to view"><span class="icon-zoom-in"></span></a>
                                     <a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
                                     <span class="pull-right">$22.00</span>
                                 </h4>

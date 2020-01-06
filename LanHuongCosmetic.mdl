@@ -2243,7 +2243,7 @@
 				supplier   	@101
 				vertices   	(list Points
 				    (878, 1268)
-				    (1138, 1249))
+				    (1138, 1250))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$5" @106
 				Parent_View 	@104
@@ -2255,7 +2255,7 @@
 				supplier   	@103
 				vertices   	(list Points
 				    (878, 1268)
-				    (618, 1287))
+				    (618, 1286))
 				line_style 	0)))
 		    (object AssociationViewNew "$UNNAMED$6" @107
 			location   	(876, 1389)
@@ -2273,7 +2273,7 @@
 				supplier   	@102
 				vertices   	(list Points
 				    (876, 1389)
-				    (1135, 1469))
+				    (1135, 1468))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$8" @109
 				Parent_View 	@107
@@ -2399,7 +2399,7 @@
 				supplier   	@113
 				vertices   	(list Points
 				    (872, 1145)
-				    (1127, 1027))
+				    (1237, 978))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$2" @116
 				Parent_View 	@114
@@ -2457,7 +2457,7 @@
 				supplier   	@110
 				vertices   	(list Points
 				    (820, 369)
-				    (1064, 277))
+				    (913, 332))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$11" @120
 				Parent_View 	@118
@@ -2487,7 +2487,7 @@
 				supplier   	@111
 				vertices   	(list Points
 				    (857, 472)
-				    (1137, 463))
+				    (1137, 462))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$14" @123
 				Parent_View 	@121
@@ -2517,7 +2517,7 @@
 				supplier   	@112
 				vertices   	(list Points
 				    (853, 586)
-				    (1130, 671))
+				    (1128, 669))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$17" @126
 				Parent_View 	@124
@@ -2547,7 +2547,7 @@
 				supplier   	@113
 				vertices   	(list Points
 				    (864, 721)
-				    (1151, 919))
+				    (1155, 920))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$20" @129
 				Parent_View 	@127
@@ -2679,12 +2679,6 @@
 		    (object ClassAttribute "product_price"
 			quid       	"5E10B02500CB"
 			type       	"double")
-		    (object ClassAttribute "product_description"
-			quid       	"5E10B0320272"
-			type       	"text")
-		    (object ClassAttribute "product_detail"
-			quid       	"5E10C4780035"
-			type       	"text")
 		    (object ClassAttribute "total"
 			quid       	"5E10B18B0079"
 			type       	"double")
@@ -2788,7 +2782,7 @@
 		zoom       	100
 		max_height 	28350
 		max_width  	21600
-		origin_x   	425
+		origin_x   	1118
 		origin_y   	150
 		items      	(list diagram_item_list
 		    (object ClassView "Class" "Logical View::Category" @130
@@ -3269,7 +3263,7 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@149
-			    location   	(1325, 212)
+			    location   	(1325, 262)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	556
@@ -3281,7 +3275,7 @@
 			quidu      	"5E10AFF500C7"
 			compartment 	(object Compartment
 			    Parent_View 	@149
-			    location   	(1325, 273)
+			    location   	(1325, 323)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -3294,22 +3288,22 @@
 			    icon_style 	"Icon"
 			    fill_color 	13434879
 			    anchor     	2
-			    nlines     	11
-			    max_width  	581
+			    nlines     	9
+			    max_width  	553
 			    justify    	1)
 			width      	574
-			height     	636
+			height     	536
 			annotation 	8
 			autoResize 	TRUE)
 		    (object AssociationViewNew "$UNNAMED$72" @150
-			location   	(1603, 926)
+			location   	(1603, 901)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5E10B1E1006F"
 			roleview_list 	(list RoleViews
 			    (object RoleView "$UNNAMED$73" @151
 				Parent_View 	@150
-				location   	(-690, 414)
+				location   	(-690, 389)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -3325,12 +3319,12 @@
 				client     	@150
 				supplier   	@149
 				vertices   	(list Points
-				    (1603, 926)
-				    (1603, 836))
+				    (1603, 901)
+				    (1603, 786))
 				line_style 	0
 				label      	(object SegLabel @152
 				    Parent_View 	@151
-				    location   	(1633, 872)
+				    location   	(1633, 832)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -3351,7 +3345,7 @@
 				    orientation 	1))
 			    (object RoleView "$UNNAMED$74" @153
 				Parent_View 	@150
-				location   	(-690, 414)
+				location   	(-690, 389)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -3367,12 +3361,12 @@
 				client     	@150
 				supplier   	@132
 				vertices   	(list Points
-				    (1603, 926)
-				    (1603, 1017))
+				    (1603, 901)
+				    (1604, 1017))
 				line_style 	0
 				label      	(object SegLabel @154
 				    Parent_View 	@153
-				    location   	(1630, 991)
+				    location   	(1630, 983)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -3554,7 +3548,7 @@
 				supplier   	@149
 				vertices   	(list Points
 				    (1153, 875)
-				    (1315, 743))
+				    (1315, 745))
 				line_style 	0
 				label      	(object SegLabel @163
 				    Parent_View 	@162
@@ -3596,7 +3590,7 @@
 				supplier   	@155
 				vertices   	(list Points
 				    (1153, 875)
-				    (990, 1005))
+				    (991, 1005))
 				line_style 	0
 				label      	(object SegLabel @165
 				    Parent_View 	@164

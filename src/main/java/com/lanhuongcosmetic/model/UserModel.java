@@ -1,10 +1,19 @@
 package com.lanhuongcosmetic.model;
 
 public class UserModel extends Abstractmodel<UserModel> {
+    private int user_id;
     private String user_name;
     private String user_email;
     private String user_pass;
     private boolean user_role;
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
 
     public String getUser_name() {
         return user_name;

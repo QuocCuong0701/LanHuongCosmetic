@@ -19,7 +19,8 @@ public class ProductService implements IProductService {
 
     @Override
     public ProductModel save(ProductModel productModel) {
-        return null;
+        int productId=iProductDAO.save(productModel);
+        return iProductDAO.findOne(productId);
     }
 
     @Override
@@ -28,7 +29,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public ProductModel findOne(int product_id) {
+    public ProductModel findOne(long product_id) {
         return null;
     }
 }

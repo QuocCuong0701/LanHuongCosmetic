@@ -1,6 +1,6 @@
 package com.lanhuongcosmetic.model;
 
-public class BillDetailModel extends Abstractmodel<BillDetailModel>{
+public class BillDetailModel extends AbstractModel<BillDetailModel> {
     private int bill_detail_id;
     private int bill_id;
     private int product_id;

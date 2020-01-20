@@ -9,13 +9,13 @@ public class BillMapper implements RowMapper<BillModel> {
     @Override
     public BillModel mapRow(ResultSet rs) {
         try {
-            BillModel billModel =new BillModel();
+            BillModel billModel = new BillModel();
             billModel.setBill_id(rs.getInt("bill_id"));
             billModel.setUser_id(rs.getInt("user_id"));
             billModel.setTotal(rs.getDouble("total"));
             billModel.setAddress(rs.getString("address"));
             billModel.setPhone(rs.getString("phone"));
-
+            billModel.setDate(rs.getTimestamp("date"));
 
             return billModel;
         } catch (SQLException e) {

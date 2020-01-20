@@ -14,7 +14,7 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
     }
 
     @Override
-    public Long save(ProductModel productModel) {
+    public int save(ProductModel productModel) {
         StringBuilder sql = new StringBuilder("INSERT INTO product (product_name, ");
         sql.append("product_image, product_price, product_description, product_detail, category_id)");
         sql.append(" VALUES (?,?,?,?,?,?)");

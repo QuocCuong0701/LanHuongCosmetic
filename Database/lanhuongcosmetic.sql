@@ -35,7 +35,7 @@ alter table product add constraint fk_category_id foreign key (category_id) refe
 drop table if exists bill;
 create table bill(
 	bill_id int auto_increment,
-    user_id int,
+    user_id int not null,
     total double not null,
     address varchar(255) not null,
     phone varchar(11) not null,

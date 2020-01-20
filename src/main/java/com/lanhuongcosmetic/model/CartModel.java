@@ -1,6 +1,6 @@
 package com.lanhuongcosmetic.model;
 
-public class CartModel extends Abstractmodel<CartModel> {
+public class CartModel extends AbstractModel<CartModel> {
     private int cart_id;
     private int user_id;
     private int product_id;

@@ -1,6 +1,6 @@
 package com.lanhuongcosmetic.model;
 
-public class ProductModel extends Abstractmodel<ProductModel>{
+public class ProductModel extends AbstractModel<ProductModel> {
     private int product_id;
     private String product_name;
     private String product_image;

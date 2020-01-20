@@ -2,7 +2,7 @@ package com.lanhuongcosmetic.model;
 
 import java.sql.Timestamp;
 
-public class BillModel extends Abstractmodel<BillModel>{
+public class BillModel extends AbstractModel<BillModel> {
     private int bill_id;
     private int user_id;
     private double total;

@@ -1,6 +1,6 @@
 package com.lanhuongcosmetic.model;
 
-public class CategoryModel extends Abstractmodel<CategoryModel> {
+public class CategoryModel extends AbstractModel<CategoryModel> {
     private int category_id;
     private String category_name;
 

@@ -1,6 +1,6 @@
 <%@include file="/common/taglib.jsp"%>
-<c:url var="APIurl" value="/api-admin-new"/>
-<c:url var ="NewURL" value="/admin-new"/>
+<c:url var="APIurl" value="/api-admin-bill"/>
+<c:url var ="BillURL" value="/admin-bill"/>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,21 +8,20 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Danh sách bài viết</title>
+		<title>Danh sách sản phẩm</title>
 	</head>
 
 	<body>
 		<div class="main-content">
-		<form action="<c:url value='/admin-new'/>" id="formSubmit" method="get">
+		<form action="<c:url value='/admin-bill'/>" id="formSubmit" method="get">
 				<div class="main-content-inner">
 					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Trang chủ</a>
+								<a href="<c:url value="/admin-home"></c:url>">Trang chủ</a>
 							</li>
 						</ul>
-						<!-- /.breadcrumb -->
 					</div>
 					<div class="page-content">
 						<div class="row">
@@ -36,15 +35,15 @@
 									<div class="table-btn-controls">
 										<div class="pull-right tableTools-container">
 											<div class="dt-buttons btn-overlap btn-group">
-												<a flag="info"
+												<%--<a flag="info"
 												   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip"
-												   title='Thêm bài viết' href='<c:url value="/admin-new?type=edit"/>'>
+												   title='Thêm sản phẩm' href='<c:url value="/admin-product?type=edit"/>'>
 															<span>
 																<i class="fa fa-plus-circle bigger-110 purple"></i>
 															</span>
-												</a>
+												</a>--%>
 												<button id="btnDelete" type="button"
-														class="dt-button buttons-html5 btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='Xóa bài viết'>
+														class="dt-button buttons-html5 btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='Xóa đơn hàng'>
 																<span>
 																	<i class="fa fa-trash-o bigger-110 pink"></i>
 																</span>
@@ -60,26 +59,39 @@
 												<thead>
 													<tr>
 														<th><input type="checkbox" id="checkAll"></th>
-														<th>Tên bài viết</th>
-														<th>Mô tả ngắn</th>
-														<th>Thao tác</th>
+														<th>Tên khách hàng</th>
+														<th>Tổng hóa đơn</th>
+														<th>Địa chỉ nhận hàng</th>
+														<th>Số điện thoại</th>
+														<th>Ngày đặt đơn</th>
+														<th>Tình trạng đơn hàng</th>
+														<td>Xem chi tiết</td>
 													</tr>
 												</thead>
 												<tbody>
 													<c:forEach var="item" items="${model.listResult}">
 														<tr>
-															<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
-															<td>${item.title}</td>
-															<td>${item.shortDescription}</td>
+															<td><input type="checkbox" id="checkbox_${item.bill_id}" value="${item.bill_id}"></td>
+															<td>${item.full_name}</td>
+															<td>${item.total}</td>
+															<td>${item.address}</td>
+															<td>${item.phone}</td>
+															<td>${item.date}</td>
 															<td>
-																<c:url var="editURL" value="/admin-new">
-																	<c:param name="type" value="edit"/>
-																	<c:param name="id" value="${item.id}"/>
-																</c:url>
-																<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-																   title="Cập nhật bài viết" href='${editURL}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-																</a>
+																<c:if test="${item.status == false}">
+																	<a class="confirmBtn btn btn-danger btn-edit" data-toggle="tooltip"
+																	   title="Đơn hàng được xác nhận" href="#" style="width: 120px;">
+																		<i class="fa fa-pencil-square-o" aria-hidden="true">  Xác nhận</i>
+																	</a>
+																</c:if>
+																<c:if test="${item.status == true}">
+																	<a class="confirmBtn btn btn-success btn-edit" data-toggle="tooltip"
+																	   title="Xác nhận đơn hàng" href="#" style="width: 120px;">
+																		<i class="fa fa-check" aria-hidden="true">  Đã xác nhận</i>
+																	</a>
+																</c:if>
 															</td>
+															<td><a href="#" title="Chi tiết đơn hàng"><i class="fa fa-info-circle"></i></a></td>
 														</tr>
 													</c:forEach>
 												</tbody>
@@ -113,8 +125,8 @@
 						if (currentPage != page) {
 							$('#maxPageItem').val(limit);
 							$('#page').val(page);
-							$('#sortName').val('title');
-							$('#sortBy').val('desc');
+							$('#sortName').val('full_name');
+							$('#sortBy').val('asc');
 							$('#type').val('list');
 							$('#formSubmit').submit();
 						}
@@ -138,10 +150,10 @@
 		            contentType: 'application/json',
 		            data: JSON.stringify(data),
 		            success: function (result) {
-		                window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=delete_success";
+		                window.location.href = "${BillURL}?type=list&maxPageItem=10&page=1&message=delete_success";
 		            },
 		            error: function (error) {
-		            	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
+		            	window.location.href = "${BillURL}?type=list&maxPageItem=10&page=1&message=error_system";
 		            }
 		        });
 		    }

@@ -3,6 +3,8 @@ package com.lanhuongcosmetic.dao.impl;
 import com.lanhuongcosmetic.dao.IProductDAO;
 import com.lanhuongcosmetic.mapper.ProductMapper;
 import com.lanhuongcosmetic.model.ProductModel;
+import com.lanhuongcosmetic.paging.Pageble;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
 
     @Override
     public void delete(int product_id) {
-        String sql = "DELETE product WHERE product_id = ?";
+        String sql = "DELETE FROM product WHERE product_id = ?";
         update(sql, product_id);
     }
 
@@ -44,5 +46,23 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
         String sql = "SELECT * FROM product WHERE product_id = ?";
         List<ProductModel> productModels = query(sql, new ProductMapper(), product_id);
         return productModels.isEmpty() ? null : productModels.get(0);
+    }
+
+    @Override
+    public List<ProductModel> findAll(Pageble pageble) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM product");
+        if (pageble.getSorter() != null && StringUtils.isNotBlank(pageble.getSorter().getSortName()) && StringUtils.isNotBlank(pageble.getSorter().getSortBy())) {
+            sql.append(" ORDER BY " + pageble.getSorter().getSortName() + " " + pageble.getSorter().getSortBy() + "");
+        }
+        if (pageble.getOffset() != null && pageble.getLimit() != null) {
+            sql.append(" LIMIT " + pageble.getOffset() + ", " + pageble.getLimit() + "");
+        }
+        return query(sql.toString(), new ProductMapper());
+    }
+
+    @Override
+    public int getTotalItem() {
+        String sql = "SELECT count(*) FROM product";
+        return count(sql);
     }
 }

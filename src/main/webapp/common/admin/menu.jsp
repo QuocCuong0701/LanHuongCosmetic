@@ -38,15 +38,29 @@
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-list"></i>
                 <span class="menu-text"></span>
-                Quản lý bài viết
+                Danh mục
                 <b class="arrow fa fa-angle-down"></b>
             </a>
             <b class="arrow"></b>
             <ul class="submenu">
                 <li>
-                    <a href="#">
+                    <a href="<c:url value="/admin-product?type=list&page=1&maxPageItem=10&sortName=product_name&sortBy=asc"/>">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        DS bài viết
+                        Quản lý sản phẩm
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li>
+                    <a href="<c:url value="/admin-user?type=list&page=1&maxPageItem=10&sortName=user_name&sortBy=asc"/>">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Quản lý người dùng
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li>
+                    <a href="<c:url value="/admin-bill?type=list&page=1&maxPageItem=10&sortName=full_name&sortBy=asc"/>">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Quản lý đơn hàng
                     </a>
                     <b class="arrow"></b>
                 </li>

@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><dec:title default="Trang chủ"/></title>
-
     <link href="<c:url value="/template/web/css/bootstrap.css"/>" type="text/css" rel="stylesheet"/>
     <link href="<c:url value='/template/web/css/style.css'/>" type="text/css" rel="stylesheet"/>
     <link href="<c:url value='/template/web/font-awesome/css/font-awesome.css'/>" type="text/css" rel="stylesheet"/>

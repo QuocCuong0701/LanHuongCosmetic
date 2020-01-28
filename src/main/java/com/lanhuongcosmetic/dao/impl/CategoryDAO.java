@@ -15,7 +15,7 @@ public class CategoryDAO extends AbstractDAO<CategoryModel> implements ICategory
 
     @Override
     public CategoryModel findOne(int category_id) {
-        String sql = "SELECT * FROM category WHERE id = ?";
+        String sql = "SELECT * FROM category WHERE category_id = ?";
         List<CategoryModel> category = query(sql, new CategoryMapper(), category_id);
         return category.isEmpty() ? null : category.get(0);
     }

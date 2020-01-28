@@ -1,5 +1,6 @@
 package com.lanhuongcosmetic.controller.admin.api;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lanhuongcosmetic.model.ProductModel;
 import com.lanhuongcosmetic.service.IProductService;
 import com.lanhuongcosmetic.utils.HttpUtil;
@@ -25,15 +26,31 @@ public class ProductAPI extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ObjectMapper mapper = new ObjectMapper();
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
-        ProductModel productModel= HttpUtil.of(req.getReader()).toModel(ProductModel.class);
+        ProductModel productModel = HttpUtil.of(req.getReader()).toModel(ProductModel.class);
         productModel = iProductService.save(productModel);
-        System.out.println(productModel);
+        mapper.writeValue(resp.getOutputStream(), productModel);
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json");
+        ProductModel updateProduct = HttpUtil.of(req.getReader()).toModel(ProductModel.class);
+        updateProduct = iProductService.update(updateProduct);
+        mapper.writeValue(resp.getOutputStream(), updateProduct);
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
+        ObjectMapper mapper = new ObjectMapper();
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json");
+        ProductModel deleteProduct = HttpUtil.of(req.getReader()).toModel(ProductModel.class);
+        iProductService.delete(deleteProduct.getIds());
+        mapper.writeValue(resp.getOutputStream(), "{}");
     }
 }

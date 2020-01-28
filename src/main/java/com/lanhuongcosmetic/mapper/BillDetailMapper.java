@@ -13,8 +13,8 @@ public class BillDetailMapper implements RowMapper<BillDetailModel> {
             billDetailModel.setBill_detail_id(rs.getInt("bill_detail_id"));
             billDetailModel.setBill_id(rs.getInt("bill_id"));
             billDetailModel.setProduct_id(rs.getInt("product_id"));
-            billDetailModel.setPrice(rs.getDouble("price"));
             billDetailModel.setQuantity(rs.getInt("quantity"));
+            billDetailModel.setTotal(rs.getDouble("total"));
 
             return billDetailModel;
         } catch (SQLException e) {

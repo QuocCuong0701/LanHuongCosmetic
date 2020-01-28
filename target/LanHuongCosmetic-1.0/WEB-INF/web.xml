@@ -19,15 +19,15 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--<filter>
+    <filter>
         <filter-name>servletFilter</filter-name>
         <filter-class>com.lanhuongcosmetic.filter.AuthorizationFilter</filter-class>
-    </filter>-->
+    </filter>
 
-    <!--<filter-mapping>
+    <filter-mapping>
         <filter-name>servletFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>-->
+    </filter-mapping>
 
     <session-config>
         <tracking-mode>COOKIE</tracking-mode>

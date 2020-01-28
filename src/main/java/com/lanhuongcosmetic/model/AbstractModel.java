@@ -1,5 +1,8 @@
 package com.lanhuongcosmetic.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AbstractModel<T> {
     private Integer page;
     private Integer maxPageItem;
@@ -10,6 +13,24 @@ public class AbstractModel<T> {
     private String alert;
     private String message;
     private String type;
+    private int[] ids;
+    private List<T> listResult = new ArrayList<>();
+
+    public List<T> getListResult() {
+        return listResult;
+    }
+
+    public void setListResult(List<T> listResult) {
+        this.listResult = listResult;
+    }
+
+    public int[] getIds() {
+        return ids;
+    }
+
+    public void setIds(int[] ids) {
+        this.ids = ids;
+    }
 
     public Integer getPage() {
         return page;

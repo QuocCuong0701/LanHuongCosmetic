@@ -149,7 +149,7 @@
     var totalPages = ${model.totalPage};
     var currentPage = 1;
     var limit = 12;
-    /*$(document).ready(function () {
+    jQuery(document).ready(function ($) {
         window.pagObj = $('#pagination').twbsPagination({
             totalPages: totalPages,
             visiblePages: 10,
@@ -163,8 +163,8 @@
                 }
             }
         });
-    })*/
-    $(function () {
+    })
+    /*$(function () {
         window.pagObj = $('#pagination').twbsPagination({
             totalPages: totalPages,
             visiblePages: 10,
@@ -178,7 +178,7 @@
                 }
             }
         });
-    });
+    });*/
 </script>
 </body>
 </html>

@@ -61,6 +61,12 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
     }
 
     @Override
+    public List<ProductModel> findAllLimit6(int category_id) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM product WHERE category_id = ? LIMIT 6");
+        return query(sql.toString(), new ProductMapper(), category_id);
+    }
+
+    @Override
     public int getTotalItem() {
         String sql = "SELECT count(*) FROM product";
         return count(sql);

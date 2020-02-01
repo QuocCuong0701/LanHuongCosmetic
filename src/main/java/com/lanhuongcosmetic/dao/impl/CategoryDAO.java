@@ -19,4 +19,10 @@ public class CategoryDAO extends AbstractDAO<CategoryModel> implements ICategory
         List<CategoryModel> category = query(sql, new CategoryMapper(), category_id);
         return category.isEmpty() ? null : category.get(0);
     }
+
+    @Override
+    public List<CategoryModel> findAllLimit4() {
+        String sql = "SELECT * FROM category LIMIT 4";
+        return query(sql, new CategoryMapper());
+    }
 }

@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@include file="/common/taglib.jsp" %>
 <header id="header">
     <div class="row">
         <div class="span4">
             <h1>
-                <a class="logo" href="index.html"><span>Twitter Bootstrap ecommerce template</span>
-                    <img src="assets/img/logo-bootstrap-shoping-cart.png" alt="bootstrap sexy shop">
+                <a class="logo" href="<c:url value="/trang-chu"/>">
+                    <img src="<c:url value="/template/web/img/lhcos.png"/>" alt="LanHuongCosmetic">
                 </a>
             </h1>
         </div>
@@ -29,8 +29,8 @@ Navigation Bar Section
             </a>
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="index.html">Home </a></li>
-                    <li class=""><a href="list-view.html">List View</a></li>
+                    <li class="active"><a href="/trang-chu">Home</a></li>
+                    <li class=""><a href="list-view.html">Products</a></li>
                     <li class=""><a href="grid-view.html">Grid View</a></li>
                     <li class=""><a href="three-col.html">Three Column</a></li>
                     <li class=""><a href="four-col.html">Four Column</a></li>
@@ -39,22 +39,21 @@ Navigation Bar Section
                 <form action="#" class="navbar-search pull-left">
                     <input type="text" placeholder="Search" class="search-query span2">
                 </form>
-                <form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" id="formLogin" method="post"
-                      style="height: 40px">
+                <%--<form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" id="formLogin" method="post" style="height: 40px">--%>
                     <ul class="nav pull-right" style="height: 40px">
                         <c:if test="${not empty USERMODEL}">
                             <li class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span
-                                        class="icon-smile"></span> ${USERMODEL.user_name}<b class="caret"></b></a>
+                                        class="icon-smile"></span> ${USERMODEL.user_name} <b class="caret"></b></a>
                                 <div class="dropdown-menu">
+                                    <form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" id="formLogin" method="post" style="height: 40px">
                                     <div class="control-group">
                                         <a class="shopBtn btn-block" href="<c:url value="/thoat?action=logout"/>">Đăng
                                             xuất</a>
                                     </div>
+                                    </form>
                                 </div>
                             </li>
-                            <%--<a href="#"><b class="caret">Welcome, ${USERMODEL.user_name}</b></a>
-                            <a href="<c:url value="/thoat?action=logout"/>"><b class="caret">Thoát</b></a>--%>
                         </c:if>
                         <c:if test="${not empty message}">
                             <div class="alert alert-${alert}">
@@ -63,38 +62,29 @@ Navigation Bar Section
                         </c:if>
                         <c:if test="${empty USERMODEL}">
                             <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span
-                                        class="icon-lock"></span> Login <b class="caret"></b></a>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <span class="icon-lock"></span> Login <b class="caret"></b>
+                                </a>
                                 <div class="dropdown-menu">
-                                        <%--<c:if test="${not empty message}">
-                                            <div class="alert alert-${alert}">
-                                                    ${message}
-                                            </div>
-                                        </c:if>--%>
-                                        <%--<c:if test="${not empty USERMODEL}">
-                                            <a href="#"><b class="caret">Welcome, ${USERMODEL.user_name}</b></a>
-                                            <a href="<c:url value="/thoat?action=logout"/>"><b class="caret">Thoát</b></a>
-                                        </c:if>--%>
-
-                                    <div class="control-group">
-                                        <input type="text" class="span2" id="inputEmail" placeholder="Username"
-                                               name="user_name">
-                                    </div>
-                                    <div class="control-group">
-                                        <input type="password" class="span2" id="inputPassword" placeholder="Password"
-                                               name="user_pass">
-                                    </div>
-                                    <div class="control-group">
-                                        <input type="hidden" value="login" id="action" name="action"/>
-                                        <button type="submit" class="shopBtn btn-block">Sign in</button>
-                                    </div>
-
-
+                                    <form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" id="formLogin" method="post" style="height: 120px">
+                                        <div class="control-group">
+                                            <input type="text" class="span2" id="inputEmail" placeholder="Username"
+                                                   name="user_name">
+                                        </div>
+                                        <div class="control-group">
+                                            <input type="password" class="span2" id="inputPassword" placeholder="Password"
+                                                   name="user_pass">
+                                        </div>
+                                        <div class="control-group">
+                                            <input type="hidden" value="login" id="action" name="action"/>
+                                            <button type="submit" class="shopBtn btn-block">Sign in</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </li>
                         </c:if>
                     </ul>
-                </form>
+                <%--</form>--%>
             </div>
         </div>
     </div>

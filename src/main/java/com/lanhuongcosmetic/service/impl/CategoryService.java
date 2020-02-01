@@ -20,4 +20,9 @@ public class CategoryService implements ICategoryService {
     public CategoryModel findOne(int category_id) {
         return iCategoryDAO.findOne(category_id);
     }
+
+    @Override
+    public List<CategoryModel> findAllLimit4() {
+        return iCategoryDAO.findAllLimit4();
+    }
 }

@@ -12,5 +12,6 @@ public interface IProductDAO extends GenericDAO<ProductModel> {
     void delete(int product_id);
     ProductModel findOne(int product_id);
     List<ProductModel> findAll(Pageble pageble);
+    List<ProductModel> findAllLimit6(int category_id);
     int getTotalItem();
 }

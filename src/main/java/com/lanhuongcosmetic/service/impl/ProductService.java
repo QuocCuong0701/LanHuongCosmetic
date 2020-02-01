@@ -58,6 +58,11 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public List<ProductModel> findAllLimit6(int category_id) {
+        return iProductDAO.findAllLimit6(category_id);
+    }
+
+    @Override
     public int getTotalItem() {
         return iProductDAO.getTotalItem();
     }

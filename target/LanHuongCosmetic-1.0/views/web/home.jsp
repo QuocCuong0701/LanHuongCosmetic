@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,18 +11,17 @@
     <div id="sidebar" class="span3">
         <div class="well well-small">
             <ul class="nav nav-list">
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Fashion</a></li>
+                <c:forEach var="listCategory" items="${categories.listResult}">
+                    <li>
+                        <a href="#" id="category_id_${listCategory.category_id}" style="text-transform: capitalize;">
+                            <span class="icon-chevron-right"></span> ${listCategory.category_name}
+                        </a>
+                    </li>
+                </c:forEach>
+                <%--<li><a href="products.html"><span class="icon-chevron-right"></span>Fashion</a></li>
                 <li><a href="products.html"><span class="icon-chevron-right"></span>Watches</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Fine Jewelry</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Fashion Jewelry</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Engagement & Wedding</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Men's Jewelry</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Vintage & Antique</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Loose Diamonds </a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Loose Beads</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
+                <li><a href="products.html"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>--%>
                 <li style="border:0"> &nbsp;</li>
-                <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
             </ul>
         </div>
 
@@ -32,11 +31,7 @@
                 only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
             </p>
         </div>
-        <div class="well well-small" ><a href="#"><img src="assets/img/paypal.jpg" alt="payment method paypal"></a></div>
 
-        <a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
-        <br>
-        <br>
         <ul class="nav nav-list promowrapper">
             <li>
                 <div class="thumbnail">
@@ -68,8 +63,8 @@
                 </div>
             </li>
         </ul>
-
     </div>
+
     <div class="span9">
         <div class="well np">
             <div id="myCarousel" class="carousel slide homCar">
@@ -108,132 +103,45 @@
             </div>
         </div>
         <!--
-        New Products
+        Products
         -->
-        <div class="well well-small">
-            <h3>New Products </h3>
-            <hr class="soften"/>
-            <div class="row-fluid">
-                <div id="newProductCar" class="carousel slide">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <ul class="thumbnails">
-                                <li class="span3">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                        <a href="#" class="tag"></a>
-                                        <a href="product_details.html"><img src="assets/img/bootstrap-ring.png" alt="bootstrap-ring"></a>
-                                    </div>
-                                </li>
-                                <li class="span3">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                        <a href="#" class="tag"></a>
-                                        <a  href="product_details.html"><img src="assets/img/i.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li class="span3">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                        <a href="#" class="tag"></a>
-                                        <a  href="product_details.html"><img src="assets/img/g.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li class="span3">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                        <a  href="product_details.html"><img src="assets/img/s.png" alt=""></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="item">
-                            <ul class="thumbnails">
-                                <li class="span3">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                        <a  href="product_details.html"><img src="assets/img/i.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li class="span3">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                        <a  href="product_details.html"><img src="assets/img/f.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li class="span3">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                        <a  href="product_details.html"><img src="assets/img/h.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li class="span3">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                        <a  href="product_details.html"><img src="assets/img/j.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+        <c:forEach var="item" items="${categoriesLimit4.listResult}">
+            <div class="well well-small">
+                <h3 id="category_id_${item.category_id}" style="text-transform: capitalize">${item.category_name}</h3>
+                <hr class="soften"/>
+                    <div class="row-fluid">
+                        <ul class="thumbnails">
+                            <%--<form action="<c:url value='/trang-chu'/>" id="formSubmit" method="GET">--%>
+                                <c:forEach var="products" items="${productLimit6.listResult}">
+                                    <c:if test="${productSize == 0}">
+                                        <p><strong>Không có sản phẩm nào.</strong></p>
+                                    </c:if>
+                                    <c:if test="${productSize > 0}">
+                                        <input type="hidden" value="${item.category_id}" name="category_id"/>
+                                        <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
+                                            <div class="thumbnail">
+                                                <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                                <a href="product_details.html"><img src="${products.product_image}" style="width: 207px; height: 267px;" alt=""></a>
+                                                <div class="caption cntr">
+                                                    <p style="height: 40px; text-transform: capitalize;">${products.product_name}</p>
+                                                    <p><strong> ${products.product_price}</strong></p>
+                                                    <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                                                        <%--<div class="actionList">
+                                                            <a class="pull-left" href="#">Add to Wish List </a>
+                                                            <a class="pull-left" href="#"> Add to Compare </a>
+                                                        </div>--%>
+                                                    <br class="clr">
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </c:if>
+                                </c:forEach>
+                            <%--</form>--%>
+                        </ul>
                     </div>
-                    <a class="left carousel-control" href="#newProductCar" data-slide="prev">&lsaquo;</a>
-                    <a class="right carousel-control" href="#newProductCar" data-slide="next">&rsaquo;</a>
-                </div>
             </div>
-            <div class="row-fluid">
-                <ul class="thumbnails">
-                    <li class="span4">
-                        <div class="thumbnail">
+        </c:forEach>
 
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                            <a href="product_details.html"><img src="assets/img/b.jpg" alt=""></a>
-                            <div class="caption cntr">
-                                <p>Manicure & Pedicure</p>
-                                <p><strong> $22.00</strong></p>
-                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
-                                <div class="actionList">
-                                    <a class="pull-left" href="#">Add to Wish List </a>
-                                    <a class="pull-left" href="#"> Add to Compare </a>
-                                </div>
-                                <br class="clr">
-                            </div>
-                        </div>
-                    </li>
-                    <li class="span4">
-                        <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                            <a href="product_details.html"><img src="assets/img/c.jpg" alt=""></a>
-                            <div class="caption cntr">
-                                <p>Manicure & Pedicure</p>
-                                <p><strong> $22.00</strong></p>
-                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
-                                <div class="actionList">
-                                    <a class="pull-left" href="#">Add to Wish List </a>
-                                    <a class="pull-left" href="#"> Add to Compare </a>
-                                </div>
-                                <br class="clr">
-                            </div>
-                        </div>
-                    </li>
-                    <li class="span4">
-                        <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                            <a href="product_details.html"><img src="assets/img/a.jpg" alt=""></a>
-                            <div class="caption cntr">
-                                <p>Manicure & Pedicure</p>
-                                <p><strong> $22.00</strong></p>
-                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
-                                <div class="actionList">
-                                    <a class="pull-left" href="#">Add to Wish List </a>
-                                    <a class="pull-left" href="#"> Add to Compare </a>
-                                </div>
-                                <br class="clr">
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <!--
         Featured Products
         -->

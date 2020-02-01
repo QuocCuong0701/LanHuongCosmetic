@@ -153,7 +153,7 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-            	window.location.href = "${ProductURL}?type=edit&id="+result.id+"&message=insert_success";
+            	window.location.href = "${ProductURL}?type=edit&product_id="+result.product_id+"&message=insert_success";
             },
             error: function (error) {
             	window.location.href = "${ProductURL}?type=list&maxPageItem=10&page=1&message=error_system";
@@ -193,25 +193,6 @@
             }
         });
     }
-
-    /*function toDataURL(url, callback) {
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.onload = function() {
-            var fileReader = new FileReader();
-            fileReader.onloadend = function() {
-                callback(fileReader.result);
-            }
-            fileReader.readAsDataURL(httpRequest.response);
-        };
-        httpRequest.open('GET', url);
-        httpRequest.responseType = 'blob';
-        httpRequest.send();
-    }
-    toDataURL('https://www.tutorialspoint.com/videotutorials/images/tutor_connect_home.jpg', function(dataUrl) {
-        document.write('Result in string:', dataUrl)
-    });*/
-
-
 </script>
 </body>
 </html>

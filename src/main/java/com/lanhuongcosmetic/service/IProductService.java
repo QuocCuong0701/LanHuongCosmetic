@@ -12,5 +12,6 @@ public interface IProductService {
     void delete(int[] ids);
     ProductModel findOne(int product_id);
     List<ProductModel> findAll(Pageble pageble);
+    List<ProductModel> findAllLimit6(int category_id);
     int getTotalItem();
 }

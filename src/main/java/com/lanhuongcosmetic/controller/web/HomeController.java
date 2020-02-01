@@ -1,8 +1,10 @@
 package com.lanhuongcosmetic.controller.web;
 
+import com.lanhuongcosmetic.model.CategoryModel;
 import com.lanhuongcosmetic.model.ProductModel;
 import com.lanhuongcosmetic.model.UserModel;
 import com.lanhuongcosmetic.service.ICategoryService;
+import com.lanhuongcosmetic.service.IProductService;
 import com.lanhuongcosmetic.service.IUserService;
 import com.lanhuongcosmetic.utils.FormUtil;
 import com.lanhuongcosmetic.utils.SessionUtil;
@@ -26,6 +28,9 @@ public class HomeController extends HttpServlet {
     @Inject
     private ICategoryService iCategoryService;
 
+    @Inject
+    private IProductService iProductService;
+
     ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 
     @Override
@@ -44,12 +49,30 @@ public class HomeController extends HttpServlet {
             SessionUtil.getInstance().removeValue(req, "USERMODEL");
             resp.sendRedirect(req.getContextPath() + "/trang-chu");
         } else {
-            req.setAttribute("categories", iCategoryService.findAll());
+            CategoryModel categoryModel = FormUtil.toModel(CategoryModel.class, req);
+            categoryModel.setListResult(iCategoryService.findAll());
+            req.setAttribute("categories", categoryModel);
+
+            CategoryModel categoryLimit4 = FormUtil.toModel(CategoryModel.class, req);
+            categoryLimit4.setListResult(iCategoryService.findAllLimit4());
+            req.setAttribute("categoriesLimit4", categoryLimit4);
+
+            /*for (CategoryModel categories : categoryLimit4.getListResult()) {
+                ProductModel productLimit6 = FormUtil.toModel(ProductModel.class, req);
+                productLimit6.setListResult(iProductService.findAllLimit6(categories.getCategory_id()));
+                req.setAttribute("productLimit6", productLimit6);
+            }*/
+            /*productLimit9.setListResult(iProductService.findAllLimit9(categoryLimit4.getCategory_id()));*/
+            //productLimit9.setListResult(iProductService.findAllLimit9(1));
+
+            ProductModel productLimit6 = FormUtil.toModel(ProductModel.class, req);
+            productLimit6.setListResult(iProductService.findAllLimit6(1));
+            req.setAttribute("productLimit6", productLimit6);
+            req.setAttribute("productSize", productLimit6.getListResult().size());
+
             RequestDispatcher rd = req.getRequestDispatcher("/views/web/home.jsp");
             rd.forward(req, resp);
         }
-        /*RequestDispatcher rd = req.getRequestDispatcher("/views/web/home.jsp");
-        rd.forward(req, resp);*/
     }
 
     @Override

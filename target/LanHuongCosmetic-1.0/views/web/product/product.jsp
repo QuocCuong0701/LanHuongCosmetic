@@ -137,7 +137,7 @@
                     </c:forEach>
                 </ul>
             </div>
-            <ul class="pagination" id="pagination"></ul>
+            <ul class="pagination" id="paginationLol"></ul>
             <input type="hidden" value="" id="page" name="page"/>
             <input type="hidden" value="" id="maxPageItem" name="maxPageItem"/>
             <input type="hidden" value="" id="sortName" name="sortName"/>
@@ -150,7 +150,7 @@
     var currentPage = 1;
     var limit = 12;
     jQuery(document).ready(function ($) {
-        window.pagObj = $('#pagination').twbsPagination({
+        window.pagObj = $('#paginationLol').twbsPagination({
             totalPages: totalPages,
             visiblePages: 10,
             startPage: currentPage,

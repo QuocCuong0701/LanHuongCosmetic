@@ -17,9 +17,11 @@ F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\controller\admin\Prod
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\mapper\CategoryMapper.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\service\IProductService.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\mapper\ProductMapper.java
+F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\controller\admin\api\UserAPI.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\impl\CartDAO.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\impl\CategoryDAO.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\model\ProductModel.java
+F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\controller\admin\api\BillAPI.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\GenericDAO.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\service\IBillDetailService.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\impl\UserDAO.java
@@ -30,6 +32,7 @@ F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\IProductDAO.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\impl\BillDetailDAO.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\impl\BillDAO.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\utils\HttpUtil.java
+F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\controller\admin\BillController.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\mapper\BillMapper.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\service\ICartService.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\model\BillModel.java
@@ -39,12 +42,14 @@ F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\sort\Sorter.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\mapper\RowMapper.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\service\impl\ProductService.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\utils\SessionUtil.java
+F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\controller\web\ProductController.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\service\impl\CategoryService.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\service\IBillService.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\service\ICategoryService.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\paging\Pageble.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\impl\ProductDAO.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\service\impl\CartService.java
+F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\controller\admin\UserController.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\IBillDetailDAO.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\controller\admin\api\ProductAPI.java
 F:\Git\LanHuongCosmetic\src\main\java\com\lanhuongcosmetic\dao\ICartDAO.java

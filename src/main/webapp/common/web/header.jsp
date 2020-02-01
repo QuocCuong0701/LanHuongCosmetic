@@ -5,7 +5,7 @@
         <div class="span4">
             <h1>
                 <a class="logo" href="<c:url value="/trang-chu"/>">
-                    <img src="<c:url value="/template/web/img/lhcos.png"/>" alt="LanHuongCosmetic">
+                    <img src="<c:url value="/template/web/img/lhcos.png"/>" style="height: 70px;" alt="LanHuongCosmetic">
                 </a>
             </h1>
         </div>
@@ -30,7 +30,7 @@ Navigation Bar Section
             <div class="nav-collapse">
                 <ul class="nav">
                     <li class="active"><a href="/trang-chu">Home</a></li>
-                    <li class=""><a href="list-view.html">Products</a></li>
+                    <li class=""><a href="/product">Products</a></li>
                     <li class=""><a href="grid-view.html">Grid View</a></li>
                     <li class=""><a href="three-col.html">Three Column</a></li>
                     <li class=""><a href="four-col.html">Four Column</a></li>

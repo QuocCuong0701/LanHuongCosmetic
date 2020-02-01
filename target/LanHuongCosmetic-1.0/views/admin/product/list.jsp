@@ -71,14 +71,7 @@
 													<tr>
 														<td><input type="checkbox" id="checkbox_${item.product_id}" value="${item.product_id}"></td>
 														<td>${item.product_name}</td>
-														<td>
-															<c:if test="${item.product_image == null}">
-																<img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="height: 100px">
-															</c:if>
-															<%--<c:if test="${item.product_image != null}">
-																<img src="<c:url value="${item.product_image}"/>" alt="" style="height: 100px">
-															</c:if>--%>
-														</td>
+														<td><img src="<c:url value="${item.product_image}"/>" alt="" style="height: 100px"></td>
 														<td>${item.product_price}</td>
 														<td>${item.product_description}</td>
 														<td>${item.product_detail}</td>

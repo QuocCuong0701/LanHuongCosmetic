@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Trang chủ</title>
+    <title>Sản phẩm</title>
 </head>
 <body>
 <div class="row">
@@ -114,7 +114,14 @@
                         <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
                             <div class="thumbnail">
                                 <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                <a href="product_details.html"><img src="${products.product_image}" style="width: 207px; height: 267px;" alt=""></a>
+                                <a href="product_details.html">
+                                    <c:if test="${products.product_image == null}">
+                                        <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
+                                    </c:if>
+                                    <c:if test="${products.product_image != null}">
+                                        <img src="<c:url value="${products.product_image}"/>" alt="" style="width: 207px; height: 267px;">
+                                    </c:if>
+                                </a>
                                 <div class="caption cntr">
                                     <p style="height: 40px; text-transform: capitalize;">${products.product_name}</p>
                                     <p><strong> ${products.product_price}</strong></p>
@@ -135,14 +142,28 @@
             <input type="hidden" value="" id="maxPageItem" name="maxPageItem"/>
             <input type="hidden" value="" id="sortName" name="sortName"/>
             <input type="hidden" value="" id="sortBy" name="sortBy"/>
-            <input type="hidden" value="" id="type" name="type"/>
         </div>
     </div>
 </div>
 <script>
     var totalPages = ${model.totalPage};
-    var currentPage = ${model.page};
+    var currentPage = 1;
     var limit = 12;
+    /*$(document).ready(function () {
+        window.pagObj = $('#pagination').twbsPagination({
+            totalPages: totalPages,
+            visiblePages: 10,
+            startPage: currentPage,
+            onPageClick: function (event, page) {
+                if (currentPage != page) {
+                    $('#maxPageItem').val(limit);
+                    $('#page').val(page);
+                    $('#sortName').val('product_name');
+                    $('#sortBy').val('asc');
+                }
+            }
+        });
+    })*/
     $(function () {
         window.pagObj = $('#pagination').twbsPagination({
             totalPages: totalPages,
@@ -154,8 +175,6 @@
                     $('#page').val(page);
                     $('#sortName').val('product_name');
                     $('#sortBy').val('asc');
-                    $('#type').val('list');
-                    $('#formSubmit').submit();
                 }
             }
         });

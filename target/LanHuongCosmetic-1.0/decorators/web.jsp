@@ -9,6 +9,10 @@
     <link href="<c:url value='/template/web/css/style.css'/>" type="text/css" rel="stylesheet"/>
     <link href="<c:url value='/template/web/font-awesome/css/font-awesome.css'/>" type="text/css" rel="stylesheet"/>
     <link rel="shortcut icon" href="<c:url value='/template/web/ico/favicon.ico'/>">
+    <%--<script type='text/javascript' src='<c:url value="/template/web/js/jquery.min.js" />'></script>
+    <script type='text/javascript' src='<c:url value="/template/web/js/jquery-1.7.2.min.js" />'></script>--%>
+    <script type='text/javascript' src='<c:url value="/template/web/js/jquery-2.2.3.js" />'></script>
+    <script src="<c:url value="/template/paging/jquery.twbsPagination.js" />"></script>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">

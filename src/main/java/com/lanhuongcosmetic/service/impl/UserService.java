@@ -18,6 +18,12 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public UserModel save(UserModel userModel) {
+        int user_id = iUserDAO.save(userModel);
+        return iUserDAO.findOne(user_id);
+    }
+
+    @Override
     public void delete(int[] ids) {
         for (int id :ids) {
             iUserDAO.delete(id);

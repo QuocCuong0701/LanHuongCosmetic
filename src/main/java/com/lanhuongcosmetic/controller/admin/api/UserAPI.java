@@ -25,7 +25,12 @@ public class UserAPI extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        ObjectMapper mapper = new ObjectMapper();
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json");
+        UserModel addUser = HttpUtil.of(req.getReader()).toModel(UserModel.class);
+        iUserService.save(addUser);
+        mapper.writeValue(resp.getOutputStream(), addUser);
     }
 
     @Override

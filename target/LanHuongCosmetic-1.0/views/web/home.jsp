@@ -8,62 +8,7 @@
 </head>
 <body>
 <div class="row">
-    <div id="sidebar" class="span3">
-        <div class="well well-small">
-            <ul class="nav nav-list">
-                <c:forEach var="listCategory" items="${categories.listResult}">
-                    <li>
-                        <a href="#" id="category_id_${listCategory.category_id}" style="text-transform: capitalize;">
-                            <span class="icon-chevron-right"></span> ${listCategory.category_name}
-                        </a>
-                    </li>
-                </c:forEach>
-                <%--<li><a href="products.html"><span class="icon-chevron-right"></span>Fashion</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Watches</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>--%>
-                <li style="border:0"> &nbsp;</li>
-            </ul>
-        </div>
-
-        <div class="well well-small alert alert-warning cntr">
-            <h2>50% Discount</h2>
-            <p>
-                only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
-            </p>
-        </div>
-
-        <ul class="nav nav-list promowrapper">
-            <li>
-                <div class="thumbnail">
-                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                    <img src="assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
-                    <div class="caption">
-                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-                    </div>
-                </div>
-            </li>
-            <li style="border:0"> &nbsp;</li>
-            <li>
-                <div class="thumbnail">
-                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                    <img src="assets/img/shopping-cart-template.png" alt="shopping cart template">
-                    <div class="caption">
-                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-                    </div>
-                </div>
-            </li>
-            <li style="border:0"> &nbsp;</li>
-            <li>
-                <div class="thumbnail">
-                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                    <img src="assets/img/bootstrap-template.png" alt="bootstrap template">
-                    <div class="caption">
-                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+    <%@include file="/common/web/left-menu.jsp"%>
 
     <div class="span9">
         <div class="well np">
@@ -102,9 +47,7 @@
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
             </div>
         </div>
-        <!--
-        Products
-        -->
+        <!-- Products -->
         <c:forEach var="item" items="${categoriesLimit4.listResult}">
             <div class="well well-small">
                 <h3 id="category_id_${item.category_id}" style="text-transform: capitalize">${item.category_name}</h3>
@@ -120,12 +63,24 @@
                                         <input type="hidden" value="${item.category_id}" name="category_id"/>
                                         <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
                                             <div class="thumbnail">
-                                                <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                                <a href="product_details.html"><img src="${products.product_image}" style="width: 207px; height: 267px;" alt=""></a>
+                                                <a class="zoomTool" href="<c:url value="/product-detail?product_id=${products.product_id}"/>" title="add to cart">
+                                                    <span class="icon-search"></span> Xem sản phẩm
+                                                </a>
+                                                <a href="<c:url value="/product-detail?product_id=${products.product_id}"/>">
+                                                    <c:if test="${products.product_image == null}">
+                                                        <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
+                                                    </c:if>
+                                                    <c:if test="${products.product_image != null}">
+                                                        <img src="<c:url value="${products.product_image}"/>" alt="" style="width: 207px; height: 267px;">
+                                                    </c:if>
+                                                </a>
                                                 <div class="caption cntr">
-                                                    <p style="height: 40px; text-transform: capitalize;">${products.product_name}</p>
-                                                    <p><strong> ${products.product_price}</strong></p>
-                                                    <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                                                    <p style="height: 40px; text-transform: capitalize;overflow: hidden;"> ${products.product_name}</p>
+                                                    <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${products.product_price} &#8363;</strong></p>
+                                                    <h4>
+                                                        <a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${products.product_id}"/>" title="add to cart">
+                                                        <i class="icon-shopping-cart"></i> Thêm vào giỏ </a>
+                                                    </h4>
                                                         <%--<div class="actionList">
                                                             <a class="pull-left" href="#">Add to Wish List </a>
                                                             <a class="pull-left" href="#"> Add to Compare </a>
@@ -199,11 +154,6 @@
         <div class="well well-small">
             <a class="btn btn-mini pull-right" href="#">View more <span class="icon-plus"></span></a>
             Popular Products
-        </div>
-        <hr>
-        <div class="well well-small">
-            <a class="btn btn-mini pull-right" href="#">View more <span class="icon-plus"></span></a>
-            Best selling Products
         </div>
     </div>
 </div>

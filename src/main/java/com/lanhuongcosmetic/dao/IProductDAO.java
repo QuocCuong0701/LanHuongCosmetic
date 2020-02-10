@@ -6,7 +6,7 @@ import com.lanhuongcosmetic.paging.Pageble;
 import java.util.List;
 
 public interface IProductDAO extends GenericDAO<ProductModel> {
-    List<ProductModel> findByCategory(int category_id);
+    List<ProductModel> findByCategory(Pageble pageble, int category_id);
     int save(ProductModel productModel);
     void update(ProductModel productModel);
     void delete(int product_id);
@@ -14,4 +14,5 @@ public interface IProductDAO extends GenericDAO<ProductModel> {
     List<ProductModel> findAll(Pageble pageble);
     List<ProductModel> findAllLimit6(int category_id);
     int getTotalItem();
+    ProductModel findOneByProductId(int product_id);
 }

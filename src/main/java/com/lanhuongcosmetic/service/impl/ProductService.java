@@ -19,8 +19,8 @@ public class ProductService implements IProductService {
     private IProductDAO iProductDAO;
 
     @Override
-    public List<ProductModel> findByCategory(int category_id) {
-        return iProductDAO.findByCategory(category_id);
+    public List<ProductModel> findByCategory(Pageble pageble,int category_id) {
+        return iProductDAO.findByCategory(pageble, category_id);
     }
 
     @Override
@@ -65,5 +65,10 @@ public class ProductService implements IProductService {
     @Override
     public int getTotalItem() {
         return iProductDAO.getTotalItem();
+    }
+
+    @Override
+    public ProductModel findOneByProductId(int product_id) {
+        return iProductDAO.findOneByProductId(product_id);
     }
 }

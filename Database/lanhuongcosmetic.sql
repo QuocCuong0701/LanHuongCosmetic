@@ -63,10 +63,10 @@ alter table bill_detail add constraint fk_product_id foreign key (product_id) re
 drop table if exists cart;
 create table cart(
 	cart_id int primary key auto_increment not null,
-    user_id int not null,
+    -- user_id int not null,
     product_id int not null,
     total double not null,
     quantity int(10) not null
 );
-alter table cart add constraint fk_cart_user_id foreign key (user_id) references user(user_id);
+-- alter table cart add constraint fk_cart_user_id foreign key (user_id) references user(user_id);
 alter table cart add constraint fk_cart_product_id foreign key (product_id) references product(product_id);

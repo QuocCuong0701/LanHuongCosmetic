@@ -10,9 +10,12 @@ import java.util.List;
 
 public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO {
     @Override
-    public List<ProductModel> findByCategory(int category_id) {
-        String sql = "SELECT * FROM product WHERE category_id = ?";
-        return query(sql, new ProductMapper(), category_id);
+    public List<ProductModel> findByCategory(Pageble pageble, int category_id) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM product WHERE category_id = ?");
+        if (pageble.getOffset() != null && pageble.getLimit() != null) {
+            sql.append(" LIMIT " + pageble.getOffset() + ", " + pageble.getLimit() + "");
+        }
+        return query(sql.toString(), new ProductMapper(), category_id);
     }
 
     @Override
@@ -70,5 +73,12 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
     public int getTotalItem() {
         String sql = "SELECT count(*) FROM product";
         return count(sql);
+    }
+
+    @Override
+    public ProductModel findOneByProductId(int product_id) {
+        String sql = "SELECT * FROM product WHERE product_id = ?";
+        List<ProductModel> productModels = query(sql, new ProductMapper(), product_id);
+        return productModels.isEmpty() ? null : productModels.get(0);
     }
 }

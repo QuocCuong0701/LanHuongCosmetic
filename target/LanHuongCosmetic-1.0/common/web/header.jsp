@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp" %>
+
+<div id="gototop"> </div>
+
 <header id="header">
     <div class="row">
         <div class="span4">
@@ -10,15 +13,13 @@
             </h1>
         </div>
         <div class="span4 alignR" style="float:right;">
-            <p><br> <strong> Support (24/7) : 0800 1234 678 </strong><br><br></p>
+            <p><br> <strong> Hỗ trợ (24/7) : 0800 1234 678 </strong><br><br></p>
             <span class="btn btn-mini">[ 2 ] <span class="icon-shopping-cart"></span></span>
         </div>
     </div>
 </header>
 
-<!--
-Navigation Bar Section
--->
+<!-- Navigation Bar Section -->
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container" style="height: 40px">
@@ -29,62 +30,58 @@ Navigation Bar Section
             </a>
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="/trang-chu">Home</a></li>
-                    <li class=""><a href="/product">Products</a></li>
-                    <li class=""><a href="grid-view.html">Grid View</a></li>
+                    <li class="active"><a href="/trang-chu">Trang chủ</a></li>
+                    <li class=""><a href="/product?page=1">Sản phẩm</a></li>
+                    <li class=""><a href="/about-us">Giới thiệu</a></li>
                     <li class=""><a href="three-col.html">Three Column</a></li>
                     <li class=""><a href="four-col.html">Four Column</a></li>
-                    <li class=""><a href="general.html">General Content</a></li>
                 </ul>
                 <form action="#" class="navbar-search pull-left">
                     <input type="text" placeholder="Search" class="search-query span2">
                 </form>
-                <%--<form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" id="formLogin" method="post" style="height: 40px">--%>
-                    <ul class="nav pull-right" style="height: 40px">
-                        <c:if test="${not empty USERMODEL}">
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span
-                                        class="icon-smile"></span> ${USERMODEL.user_name} <b class="caret"></b></a>
-                                <div class="dropdown-menu">
-                                    <form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" id="formLogin" method="post" style="height: 40px">
+                <ul class="nav pull-right" style="height: 40px">
+                    <c:if test="${not empty USERMODEL}">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span
+                                    class="icon-user"></span> ${USERMODEL.user_name} <b class="caret"></b></a>
+                            <div class="dropdown-menu">
+                                <form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" method="post" style="height: 40px">
                                     <div class="control-group">
-                                        <a class="shopBtn btn-block" href="<c:url value="/thoat?action=logout"/>">Đăng
-                                            xuất</a>
+                                        <a class="shopBtn btn-block" href="<c:url value="/thoat?action=logout"/>">Đăng xuất</a>
                                     </div>
-                                    </form>
-                                </div>
-                            </li>
-                        </c:if>
-                        <c:if test="${not empty message}">
-                            <div class="alert alert-${alert}">
-                                    ${message}
+                                </form>
                             </div>
-                        </c:if>
-                        <c:if test="${empty USERMODEL}">
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                    <span class="icon-lock"></span> Login <b class="caret"></b>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" id="formLogin" method="post" style="height: 120px">
-                                        <div class="control-group">
-                                            <input type="text" class="span2" id="inputEmail" placeholder="Username"
-                                                   name="user_name">
-                                        </div>
-                                        <div class="control-group">
-                                            <input type="password" class="span2" id="inputPassword" placeholder="Password"
-                                                   name="user_pass">
-                                        </div>
-                                        <div class="control-group">
-                                            <input type="hidden" value="login" id="action" name="action"/>
-                                            <button type="submit" class="shopBtn btn-block">Sign in</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                        </c:if>
-                    </ul>
-                <%--</form>--%>
+                        </li>
+                    </c:if>
+                    <c:if test="${not empty message}">
+                        <div class="alert alert-${alert}">
+                                ${message}
+                        </div>
+                    </c:if>
+                    <c:if test="${empty USERMODEL}">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="icon-lock"></span> Đăng nhập <b class="caret"></b>
+                            </a>
+                            <div class="dropdown-menu">
+                                <form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" method="post" style="height: 120px">
+                                    <div class="control-group">
+                                        <input type="text" class="span2" id="inputEmail" placeholder="Username"
+                                               name="user_name">
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="password" class="span2" id="inputPassword" placeholder="Password"
+                                               name="user_pass">
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="hidden" value="login" id="action" name="action"/>
+                                        <button type="submit" name="action" value="login" class="shopBtn btn-block">Đăng nhập</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                    </c:if>
+                </ul>
             </div>
         </div>
     </div>

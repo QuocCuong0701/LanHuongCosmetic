@@ -98,7 +98,7 @@ hr.soften {margin: 8px 0;background: #DDD;}
 #newProductCar .carousel-control.right {right: 8px; left: auto;}
 #newProductCar .carousel-control.left {right: 38px; left: auto;}
 #newProductCar{margin-bottom:0}
-.zoomTool{width:120px; height:34px; font-size:14px; font-weight:bold; line-height:34px; text-align:center; color:#fff; border-radius:2px; background:#f89406; position:absolute; left:50%; top:44%; margin-left:-60px; z-index:999; display:none}.thumbnail{background:#fff}
+.zoomTool{width:150px; height:34px; font-size:14px; font-weight:bold; line-height:34px; text-align:center; color:#fff; border-radius:2px; background:#f89406; position:absolute; left:50%; top:44%; margin-left:-75px; z-index:999; display:none}.thumbnail{background:#fff}
 .zoomTool:hover{color:#fff; text-decoration:none; }
 .thumbnail>a.overlay, .thumbnail>a.zoomTool {display:none;}
 .shopBtn {min-height: 34px;font-size: 14px;font-weight: bold;line-height: 34px;text-align: center;color: #fff;border-radius: 2px;background: #f89406;display:inline-block;padding:0 12px;border:0;}
@@ -109,88 +109,42 @@ hr.soften {margin: 8px 0;background: #DDD;}
 #gototop{margin-top:1px;}
 #footerMenu a{ font-size:12px; text-transform:lowercase}
 
-/*
-.pagination {
-    display: inline-block;
-    padding-left: 0;
-    margin: 20px 0;
-    border-radius: 4px
+.info-error{
+    display: none;
+    clear: both;
 }
-
-.pagination > li {
-    display: inline
-}
-
-.pagination > li > a, .pagination > li > span {
+.info-error{
+    padding: 1em 2em 1em 3.5em!important;
+    margin: 0 0 2em!important;
     position: relative;
-    float: left;
-    padding: 6px 12px;
-    line-height: 1.42857143;
-    text-decoration: none;
-    color: #337ab7;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-left: -1px
+    background-color: #ffefef;
+    color: #515151;
+    border-top: 3px solid #a46497;
+    list-style: none!important;
+    width: auto;
+    word-wrap: break-word
 }
-
-.pagination > li:first-child > a, .pagination > li:first-child > span {
-    margin-left: 0;
-    border-bottom-left-radius: 4px;
-    border-top-left-radius: 4px
+.info-error:after,.info-error:before{
+    content: " ";
+    display: table
 }
-
-.pagination > li:last-child > a, .pagination > li:last-child > span {
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px
+.info-error:before{
+    font-family: FontAwesome;
+    content: "\f05a";
+    display: inline-block;
+    position: absolute;
+    top: 1em;
+    left: 1.5em
 }
-
-.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
-    color: #23527c;
-    background-color: #eee;
-    border-color: #ddd
+.info-error li{
+    list-style: none!important;
+    padding-left: 0!important;
+    margin-left: 0!important
 }
-
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-    z-index: 2;
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
-    cursor: default
+.info-error {
+    border-top-color: #b81c23;
 }
-
-.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
-    color: #777;
-    background-color: #fff;
-    border-color: #ddd;
-    cursor: not-allowed
+.info-error:before {
+    content: "\f05a";
+    color: #b81c23
 }
-
-.pagination-lg > li > a, .pagination-lg > li > span {
-    padding: 10px 16px;
-    font-size: 18px
-}
-
-.pagination-lg > li:first-child > a, .pagination-lg > li:first-child > span {
-    border-bottom-left-radius: 6px;
-    border-top-left-radius: 6px
-}
-
-.pagination-lg > li:last-child > a, .pagination-lg > li:last-child > span {
-    border-bottom-right-radius: 6px;
-    border-top-right-radius: 6px
-}
-
-.pagination-sm > li > a, .pagination-sm > li > span {
-    padding: 5px 10px;
-    font-size: 12px
-}
-
-.pagination-sm > li:first-child > a, .pagination-sm > li:first-child > span {
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px
-}
-
-.pagination-sm > li:last-child > a, .pagination-sm > li:last-child > span {
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px
-}*/

@@ -9,9 +9,7 @@
     <link href="<c:url value='/template/web/css/style.css'/>" type="text/css" rel="stylesheet"/>
     <link href="<c:url value='/template/web/font-awesome/css/font-awesome.css'/>" type="text/css" rel="stylesheet"/>
     <link rel="shortcut icon" href="<c:url value='/template/web/ico/favicon.ico'/>">
-    <%--<script type='text/javascript' src='<c:url value="/template/web/js/jquery.min.js" />'></script>--%>
-    <script type='text/javascript' src='<c:url value="/template/web/js/jquery-1.7.2.min.js" />'></script>
-    <%--<script type='text/javascript' src='<c:url value="/template/web/js/jquery-2.2.3.js" />'></script>--%>
+    <script type='text/javascript' src='<c:url value="/template/web/js/jquery-2.2.3.js" />'></script>
     <script src="<c:url value="/template/paging/jquery.twbsPagination.js" />"></script>
 </head>
 <body>
@@ -19,18 +17,25 @@
     <div class="topNav">
         <div class="container">
             <div class="alignR">
+                <c:set var="cart" value="${sessionScope.model}" />
                 <div class="pull-left socialNw">
                     <a href="#"><span class="icon-twitter"></span></a>
                     <a href="#"><span class="icon-facebook"></span></a>
                     <a href="#"><span class="icon-youtube"></span></a>
                     <a href="#"><span class="icon-tumblr"></span></a>
                 </div>
-                <a class="active" href="<c:url value="/trang-chu"/>"> <span class="icon-home"></span> Home</a>
-                <a href="#"><span class="icon-user"></span> My Account</a>
-                <a href="register.html"><span class="icon-edit"></span> Free Register </a>
-                <a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
-                <a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span
-                        class="badge badge-warning"> $448.42</span></a>
+                <a class="active" href="<c:url value="/trang-chu"/>"> <span class="icon-home"></span> Trang chủ</a>
+                <a href="#"><span class="icon-user"></span> Tài khoản</a>
+                <a href="<c:url value="/registration"/>"><span class="icon-edit"></span> Đăng ký </a>
+                <a href="contact.html"><span class="icon-envelope"></span> Liên hệ</a>
+                <a href="<c:url value="/cart"/>"><span class="icon-shopping-cart"></span>
+                    <c:if test="${cart == null}">
+                        0 Sản phẩm - <span class="badge badge-warning"> 0 &#8363;</span>
+                    </c:if>
+                    <c:if test="${cart != null}">
+                        ${cart.size()} Sản phẩm - <span class="badge badge-warning">${sessionScope.totalPrice} &#8363;</span>
+                    </c:if>
+                </a>
             </div>
         </div>
     </div>

@@ -5,238 +5,58 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sản phẩm</title>
-    <link href="<c:url value="/template/web/css/bootstrap.min.css"/>" type="text/css" rel="stylesheet"/>
-    <style>
-        .pagination{ !important;
-            display: inline-block;
-            padding-left: 0;
-            margin: 20px 0;
-            border-radius: 4px
-        }
-
-        .pagination > li {
-            display: inline
-        }
-
-        .pagination > li > a, .pagination > li > span {
-            position: relative;
-            float: left;
-            padding: 6px 12px;
-            line-height: 1.42857143;
-            text-decoration: none;
-            color: #337ab7;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            margin-left: -1px
-        }
-
-        .pagination > li:first-child > a, .pagination > li:first-child > span {
-            margin-left: 0;
-            border-bottom-left-radius: 4px;
-            border-top-left-radius: 4px
-        }
-
-        .pagination > li:last-child > a, .pagination > li:last-child > span {
-            border-bottom-right-radius: 4px;
-            border-top-right-radius: 4px
-        }
-
-        .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
-            color: #23527c;
-            background-color: #eee;
-            border-color: #ddd
-        }
-
-        .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-            z-index: 2;
-            color: #fff;
-            background-color: #337ab7;
-            border-color: #337ab7;
-            cursor: default
-        }
-
-        .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
-            color: #777;
-            background-color: #fff;
-            border-color: #ddd;
-            cursor: not-allowed
-        }
-
-        .pagination-lg > li > a, .pagination-lg > li > span {
-            padding: 10px 16px;
-            font-size: 18px
-        }
-
-        .pagination-lg > li:first-child > a, .pagination-lg > li:first-child > span {
-            border-bottom-left-radius: 6px;
-            border-top-left-radius: 6px
-        }
-
-        .pagination-lg > li:last-child > a, .pagination-lg > li:last-child > span {
-            border-bottom-right-radius: 6px;
-            border-top-right-radius: 6px
-        }
-
-        .pagination-sm > li > a, .pagination-sm > li > span {
-            padding: 5px 10px;
-            font-size: 12px
-        }
-
-        .pagination-sm > li:first-child > a, .pagination-sm > li:first-child > span {
-            border-bottom-left-radius: 3px;
-            border-top-left-radius: 3px
-        }
-
-        .pagination-sm > li:last-child > a, .pagination-sm > li:last-child > span {
-            border-bottom-right-radius: 3px;
-            border-top-right-radius: 3px
-        }
-    </style>
 </head>
 <body>
 <div class="row">
-    <div id="sidebar" class="span3">
-        <div class="well well-small">
-            <ul class="nav nav-list">
-                <c:forEach var="listCategory" items="${categories.listResult}">
-                    <li>
-                        <a href="#" id="category_id_${listCategory.category_id}" style="text-transform: capitalize;">
-                            <span class="icon-chevron-right"></span> ${listCategory.category_name}
-                        </a>
-                    </li>
-                </c:forEach>
-                <%--<li><a href="products.html"><span class="icon-chevron-right"></span>Fashion</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>Watches</a></li>
-                <li><a href="products.html"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>--%>
-                <li style="border:0"> &nbsp;</li>
-            </ul>
-        </div>
-
-        <div class="well well-small alert alert-warning cntr">
-            <h2>50% Discount</h2>
-            <p>
-                only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
-            </p>
-        </div>
-
-        <ul class="nav nav-list promowrapper">
-            <li>
-                <div class="thumbnail">
-                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                    <img src="assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
-                    <div class="caption">
-                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-                    </div>
-                </div>
-            </li>
-            <li style="border:0"> &nbsp;</li>
-            <li>
-                <div class="thumbnail">
-                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                    <img src="assets/img/shopping-cart-template.png" alt="shopping cart template">
-                    <div class="caption">
-                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-                    </div>
-                </div>
-            </li>
-            <li style="border:0"> &nbsp;</li>
-            <li>
-                <div class="thumbnail">
-                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                    <img src="assets/img/bootstrap-template.png" alt="bootstrap template">
-                    <div class="caption">
-                        <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
+    <%@include file="/common/web/left-menu.jsp"%>
     <div class="span9">
-        <div class="well np">
-            <div id="myCarousel" class="carousel slide homCar">
-                <div class="carousel-inner">
-                    <div class="item">
-                        <img style="width:100%" src="<c:url value="/template/web/img/bootstrap_free-ecommerce.png"/>" alt="bootstrap ecommerce templates">
-                        <div class="carousel-caption">
-                            <h4>Bootstrap shopping cart</h4>
-                            <p><span>Very clean simple to use</span></p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img style="width:100%" src="<c:url value="/template/web/img/carousel1.png"/>" alt="bootstrap ecommerce templates">
-                        <div class="carousel-caption">
-                            <h4>Bootstrap Ecommerce template</h4>
-                            <p><span>Highly Google seo friendly</span></p>
-                        </div>
-                    </div>
-                    <div class="item active">
-                        <img style="width:100%" src="<c:url value="/template/web/img/carousel3.png"/>" alt="bootstrap ecommerce templates">
-                        <div class="carousel-caption">
-                            <h4>Twitter Bootstrap cart</h4>
-                            <p><span>Very easy to integrate and expand.</span></p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img style="width:100%" src="<c:url value="/template/web/img/bootstrap-templates.png"/>" alt="bootstrap templates">
-                        <div class="carousel-caption">
-                            <h4>Bootstrap templates integration</h4>
-                            <p><span>Compitable to many more opensource cart</span></p>
-                        </div>
-                    </div>
+        <!-- Products -->
+        <form action="<c:url value='/product'/>" id="formSubmit" method="get">
+            <div class="well well-small">
+                <h3>Sản Phẩm</h3>
+                <hr class="soften"/>
+                <div class="row-fluid">
+                    <ul class="thumbnails">
+                        <c:forEach var="products" items="${model.listResult}">
+                            <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
+                                <%--<form action="<c:url value='/product-detail'/>" id="formProductDetail" method="get">--%>
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href="<c:url value="/product-detail?product_id=${products.product_id}"/>" title="add to cart">
+                                            <span class="icon-search"></span> XEM SẢN PHẨM
+                                        </a>
+                                        <a href="<c:url value="/product-detail?product_id=${products.product_id}"/>">
+                                            <c:if test="${products.product_image == null}">
+                                                <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
+                                            </c:if>
+                                            <c:if test="${products.product_image != null}">
+                                                <img src="<c:url value="${products.product_image}"/>" alt="" style="width: 207px; height: 267px;">
+                                            </c:if>
+                                        </a>
+                                        <div class="caption cntr">
+                                            <p style="height: 40px; text-transform: capitalize; overflow: hidden;">${products.product_name}</p>
+                                            <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${products.product_price} &#8363;</strong></p>
+                                            <h4><a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${products.product_id}"/>" title="add to cart"><i class="icon-shopping-cart"></i> Thêm vào giỏ </a></h4>
+                                                <%--<div class="actionList">
+                                                    <a class="pull-left" href="#">Add to Wish List </a>
+                                                    <a class="pull-left" href="#"> Add to Compare </a>
+                                                </div>--%>
+                                            <br class="clr">
+                                        </div>
+                                    </div>
+                                <%--</form>--%>
+                            </li>
+                        </c:forEach>
+                    </ul>
                 </div>
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-            </div>
-        </div>
-        <!--
-        Products
-        -->
-        <div class="well well-small">
-            <h3>Our Products</h3>
-            <hr class="soften"/>
-            <div class="row-fluid">
-                <ul class="thumbnails">
-                    <c:forEach var="products" items="${model.listResult}">
-                        <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
-                            <div class="thumbnail">
-                                <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                <a href="product_details.html">
-                                    <c:if test="${products.product_image == null}">
-                                        <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
-                                    </c:if>
-                                    <c:if test="${products.product_image != null}">
-                                        <img src="<c:url value="${products.product_image}"/>" alt="" style="width: 207px; height: 267px;">
-                                    </c:if>
-                                </a>
-                                <div class="caption cntr">
-                                    <p style="height: 40px; text-transform: capitalize;">${products.product_name}</p>
-                                    <p><strong> ${products.product_price}</strong></p>
-                                    <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
-                                        <%--<div class="actionList">
-                                            <a class="pull-left" href="#">Add to Wish List </a>
-                                            <a class="pull-left" href="#"> Add to Compare </a>
-                                        </div>--%>
-                                    <br class="clr">
-                                </div>
-                            </div>
-                        </li>
-                    </c:forEach>
-                </ul>
                 <ul class="pagination" id="pagination"></ul>
+                <input type="hidden" value="" id="page" name="page"/>
             </div>
-
-            <input type="hidden" value="" id="page" name="page"/>
-            <input type="hidden" value="" id="maxPageItem" name="maxPageItem"/>
-            <input type="hidden" value="" id="sortName" name="sortName"/>
-            <input type="hidden" value="" id="sortBy" name="sortBy"/>
-        </div>
+        </form>
     </div>
 </div>
 <script>
     var totalPages = ${model.totalPage};
-    var currentPage = 1;
-    var limit = 12;
+    var currentPage = ${model.page};
     jQuery(document).ready(function ($) {
         window.pagObj = $('#pagination').twbsPagination({
             totalPages: totalPages,
@@ -244,29 +64,12 @@
             startPage: currentPage,
             onPageClick: function (event, page) {
                 if (currentPage != page) {
-                    $('#maxPageItem').val(limit);
                     $('#page').val(page);
-                    $('#sortName').val('product_name');
-                    $('#sortBy').val('asc');
+                    $('#formSubmit').submit();
                 }
             }
         });
-    })
-    /*$(function () {
-        window.pagObj = $('#pagination').twbsPagination({
-            totalPages: totalPages,
-            visiblePages: 10,
-            startPage: currentPage,
-            onPageClick: function (event, page) {
-                if (currentPage != page) {
-                    $('#maxPageItem').val(limit);
-                    $('#page').val(page);
-                    $('#sortName').val('product_name');
-                    $('#sortBy').val('asc');
-                }
-            }
-        });
-    });*/
+    });
 </script>
 </body>
 </html>

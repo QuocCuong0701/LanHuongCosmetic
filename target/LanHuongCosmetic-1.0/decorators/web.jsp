@@ -53,7 +53,7 @@
     <!-- footer -->
 </div>
 
-<a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
+<a href="#gototop" class="gotop"><i class="icon-double-angle-up"></i></a>
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="<c:url value='/template/web/js/jquery.js'/>"></script>
@@ -61,5 +61,6 @@
 <script src="<c:url value='/template/web/js/jquery.easing-1.3.min.js'/>"></script>
 <script src="<c:url value='/template/web/js/jquery.scrollTo-1.4.3.1-min.js'/>"></script>
 <script src="<c:url value='/template/web/js/shop.js'/>"></script>
+<script src="<c:url value='/template/web/js/jquery.validate.js'/>"></script>
 </body>
 </html>

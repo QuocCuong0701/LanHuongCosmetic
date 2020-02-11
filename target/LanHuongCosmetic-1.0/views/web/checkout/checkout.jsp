@@ -111,20 +111,20 @@
                                 <c:forEach var="rows" items="${cart}">
                                     <tr>
                                         <td>${rows.value.productModel.product_name}</td>
-                                        <td>${rows.value.productModel.product_price} VND</td>
+                                        <td>${rows.value.productModel.product_price} &#8363;</td>
                                         <td>${rows.value.quantity}</td>
-                                        <td><c:out value="${rows.value.quantity * rows.value.productModel.product_price}"></c:out> VND</td>
+                                        <td><c:out value="${rows.value.quantity * rows.value.productModel.product_price}"></c:out> &#8363;</td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th style="width: 70%" colspan="2">Thành tiền:</th>
-                                    <td colspan="2"><c:out value="${sessionScope.totalPrice}"/> VND</td>
+                                    <td colspan="2"><c:out value="${sessionScope.totalPrice}"/> &#8363;</td>
                                 </tr>
                                 <tr>
                                     <th colspan="2">Tổng cộng:</th>
-                                    <td colspan="2"><strong><c:out value="${sessionScope.totalPrice}"/> VND</strong> </td>
+                                    <td colspan="2"><strong><c:out value="${sessionScope.totalPrice}"/> &#8363;</strong> </td>
                                 </tr>
                                 <tr >
                                     <td colspan="4">

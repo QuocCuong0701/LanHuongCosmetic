@@ -37,7 +37,7 @@
                     <li class=""><a href="four-col.html">Four Column</a></li>
                 </ul>
                 <form action="#" class="navbar-search pull-left">
-                    <input type="text" placeholder="Search" class="search-query span2">
+                    <input type="text" placeholder="Tìm kiếm" class="search-query span2">
                 </form>
                 <ul class="nav pull-right" style="height: 40px">
                     <c:if test="${not empty USERMODEL}">
@@ -66,11 +66,11 @@
                             <div class="dropdown-menu">
                                 <form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" method="post" style="height: 120px">
                                     <div class="control-group">
-                                        <input type="text" class="span2" id="inputEmail" placeholder="Username"
+                                        <input type="text" class="span2" id="inputEmail" placeholder="Tên đăng nhập"
                                                name="user_name">
                                     </div>
                                     <div class="control-group">
-                                        <input type="password" class="span2" id="inputPassword" placeholder="Password"
+                                        <input type="password" class="span2" id="inputPassword" placeholder="Mật khẩu"
                                                name="user_pass">
                                     </div>
                                     <div class="control-group">

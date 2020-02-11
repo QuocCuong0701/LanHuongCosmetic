@@ -36,12 +36,11 @@
                             <div class="table-btn-controls">
                                 <div class="pull-right tableTools-container">
                                     <div class="dt-buttons btn-overlap btn-group">
-                                        <button id="btnDelete" type="button"
-                                                class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+                                        <button id="btnDelete" type="button" class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
                                                 data-toggle="tooltip" title='Xóa đơn hàng'>
-												<span>
-													<i class="fa fa-trash-o bigger-110 pink"></i>
-												</span>
+                                            <span>
+                                                <i class="fa fa-trash-o bigger-110 pink"></i>
+                                            </span>
                                         </button>
                                     </div>
                                 </div>
@@ -68,7 +67,7 @@
                                             <tr>
                                                 <td><input type="checkbox" id="checkbox_${item.bill_id}" value="${item.bill_id}"></td>
                                                 <td>${item.full_name}</td>
-                                                <td>${item.total}</td>
+                                                <td>${item.total} &#8363;</td>
                                                 <td>${item.address}</td>
                                                 <td>${item.phone}</td>
                                                 <td>${item.date}</td>
@@ -91,6 +90,45 @@
                                                           id="btnBillDetail" data-toggle="modal" class="btn btn-sm btn-primary billDetail" type="modal">
                                                             <i class="fa fa-info-circle"></i>
                                                         </a>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="billDetailModal" role="dialog">
+                                                            <div class="modal-dialog modal-lg">
+                                                                <div class="modal-content" style="margin-top: 100px;">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                        <h4 class="modal-title">Chi tiết đơn hàng</h4>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <table class="table table-bordered">
+                                                                            <thead>
+                                                                            <tr>
+                                                                                <th>Tên sản phẩm</th>
+                                                                                <th>Giá</th>
+                                                                                <th>Số lượng</th>
+                                                                                <th>Tổng</th>
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                            <c:forEach var="item1" items="${billDetails.listResult}">
+                                                                                <tr>
+                                                                                    <td>${item1.product_name}</td>
+                                                                                    <td>${item1.product_price}</td>
+                                                                                    <td>${item1.quantity}</td>
+                                                                                    <td>${item1.total}</td>
+                                                                                </tr>
+                                                                            </c:forEach>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-success btn-edit" title="Xác nhận đơn hàng" style="width: 120px;">
+                                                                            <i class="fa fa-pencil-square-o" aria-hidden="true"> Xác nhận</i>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-danger" title="Đóng" data-dismiss="modal">Đóng</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 													<%--</form>--%>
                                                 </td>
                                             </tr>
@@ -112,8 +150,8 @@
         </div>
     </form>
 </div>
-<!-- Modal -->
-<div class="modal fade in" id="billDetailModal" role="dialog">
+<%--<!-- Modal -->
+<div class="modal fade" id="billDetailModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="margin-top: 100px;">
             <div class="modal-header">
@@ -150,10 +188,11 @@
             </div>
         </div>
     </div>
-</div>
+</div>--%>
 <script>
 	$(document).ready(function () {
-		$('.billDetail').click(function () {
+		$('.billDetail').click(function (e) {
+		    e.preventDefault();
 //            $('#formSubmit').submit();
 			$('#billDetailModal').modal();
 		});
@@ -202,8 +241,7 @@
                 window.location.href = "${BillURL}?type=list&maxPageItem=10&page=1&message=error_system";
             }
         });
-    }
+    };
 </script>
 </body>
-
 </html>

@@ -22,21 +22,9 @@
             </ul>
             <div id="myTabContent" class="tab-content tabWrapper">
                 <div class="tab-pane fade active in" id="home">
-                    <form class="form-horizontal loginFrm" action="/dang-ky" id="" method="post">
-                        <table class="table" style="border: 0;">
-                            <tr>
-                                <td>Tài khoản:</td>
-                                <td><input type="text" class="span2" placeholder="Username" name="user_name"></td>
-                            </tr>
-                            <tr>
-                                <td>Mật khẩu:</td>
-                                <td><input type="password" class="span2" placeholder="Password" name="user_pass"></td>
-                            </tr>
-                        </table>
-                        <div class="control-group">
-                            <button type="submit" class="shopBtn btn-block">Đăng ký</button>
-                        </div>
-                    </form>
+                    <h4>Khách hàng mới</h4>
+                    <p style="text-align: justify">Bằng cách tạo tài khoản bạn sẽ có thể mua sắm nhanh hơn, cập nhật tình trạng đơn hàng.</p>
+                    <a href="/registration" type="submit" class="shopBtn btn-block">Đăng ký tài khoản</a>
                 </div>
                 <div class="tab-pane fade" id="profile">
                     <form class="form-horizontal loginFrm" action="/dang-nhap" id="formLogin" method="post">
@@ -81,7 +69,7 @@
                         </div>
                         <div class="control-group">
                             <label class="control-label">Email <sup>*</sup></label>
-                            <div class="controls"><input type="email" placeholder="" value="${USERMODEL.user_email}"></div>
+                            <div class="controls"><input type="email" placeholder="" value="${USERMODEL.user_email}" disabled></div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Số điện thoại <sup>*</sup></label>
@@ -98,7 +86,7 @@
                 <div class="table-responsive">
                     <h3>Đơn hàng của bạn</h3>
                     <c:if test="${not empty cart}">
-                        <table class="table table-bordered" style="background: white;">
+                        <table id="billTable" class="table table-bordered" style="background: white;">
                             <thead>
                             <tr>
                                 <th style="width: 40%">Sản phẩm</th>
@@ -110,10 +98,11 @@
                             <tbody>
                                 <c:forEach var="rows" items="${cart}">
                                     <tr>
+                                        <input type="hidden" value="${rows.value.productModel.product_id}"/>
                                         <td>${rows.value.productModel.product_name}</td>
                                         <td>${rows.value.productModel.product_price} &#8363;</td>
                                         <td>${rows.value.quantity}</td>
-                                        <td><c:out value="${rows.value.quantity * rows.value.productModel.product_price}"></c:out> &#8363;</td>
+                                        <td><c:out value="${rows.value.quantity * rows.value.productModel.product_price}"/> &#8363;</td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -130,7 +119,14 @@
                                     <td colspan="4">
                                         <div class="controls" style="float: right">
                                             <button type="submit" class="shopBtn" style="width: 200px; height: 40px;display: none"><i class="icon-check"></i> THANH TOÁN</button>
-                                            <a class="btn-large shopBtn" id="btnCheckout" href="" style="width: 150px;"><i class="icon-check"></i> ĐẶT HÀNG</a>
+                                            <c:if test="${not empty USERMODEL}">
+                                                <a class="btn-large shopBtn" id="btnCheckout" href="" style="width: 150px;">
+                                                    <i class="icon-check"></i> ĐẶT HÀNG
+                                                </a>
+                                            </c:if>
+                                            <c:if test="${empty USERMODEL}">
+                                                <p style="color: red"><i>Bạn cần đăng nhập để có thể đặt hàng.</i></p>
+                                            </c:if>
                                         </div>
                                     </td>
                                 </tr>
@@ -144,14 +140,19 @@
 </div>
 <script>
     $('#btnCheckout').click(function () {
-       var data = {};
-       var formData = $('#formSubmit').serializeArray();
+       let data = {};
+       let formData = $('#formSubmit').serializeArray();
        $.each(formData, function (i, v) {
            data[""+v.name+""] = v.value;
        });
        data["total"] = ${sessionScope.totalPrice};
        data["date"] = Date.parse((new Date()).toISOString());
-       addBill(data);
+       let billDetailData = $('#billTable input').map(function () {
+           return $(this).val();
+       }).toArray();
+        let link = "/checkout/order-received?user_id=${USERMODEL.user_id}&date=" + data.date;
+        addBill(data);
+        window.open(link);
     });
 
     function addBill(data) {
@@ -168,7 +169,8 @@
                 console.log("ERROR" + error);
             }
         });
-    };
+    }
+
 </script>
 </body>
 </html>

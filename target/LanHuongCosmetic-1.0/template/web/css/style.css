@@ -108,43 +108,19 @@ hr.soften {margin: 8px 0;background: #DDD;}
 .gotop:hover {color: #fff;text-decoration: none;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;}
 #gototop{margin-top:1px;}
 #footerMenu a{ font-size:12px; text-transform:lowercase}
-
-.info-error{
-    display: none;
-    clear: both;
-}
-.info-error{
-    padding: 1em 2em 1em 3.5em!important;
-    margin: 0 0 2em!important;
-    position: relative;
-    background-color: #ffefef;
-    color: #515151;
-    border-top: 3px solid #a46497;
-    list-style: none!important;
-    width: auto;
-    word-wrap: break-word
-}
-.info-error:after,.info-error:before{
-    content: " ";
-    display: table
-}
-.info-error:before{
-    font-family: FontAwesome;
-    content: "\f05a";
-    display: inline-block;
-    position: absolute;
-    top: 1em;
-    left: 1.5em
-}
-.info-error li{
-    list-style: none!important;
-    padding-left: 0!important;
-    margin-left: 0!important
-}
-.info-error {
-    border-top-color: #b81c23;
-}
-.info-error:before {
-    content: "\f05a";
-    color: #b81c23
-}
+.info-error{display: none;clear: both;}
+.info-error{padding: 1em 2em 1em 3.5em!important;margin: 0 0 2em!important;position: relative;background-color: #ffefef;color: #515151;border-top: 3px solid #a46497;list-style: none!important;width: auto;word-wrap: break-word}
+.info-error:after,.info-error:before{content: " ";display: table}
+.info-error:before{font-family: FontAwesome;content: "\f05a";display: inline-block;position: absolute;top: 1em;left: 1.5em}
+.info-error li{list-style: none!important;padding-left: 0!important;margin-left: 0!important}
+.info-error {border-top-color: #b81c23;}
+.info-error:before {content: "\f05a";color: #b81c23}
+.error{color: red}
+.order_details:after{clear: both}
+.order_details {margin: 0 0 1.5em;list-style: none}
+.order_details:after,.order_details:before {content: " ";display: table}
+.order_details li {float: left;margin-right: 2em;text-transform: uppercase;font-size: .715em;line-height: 1;border-right: 1px dashed #d3ced2;padding-right: 2em;margin-left: 0;padding-left: 0}
+.order_details li strong {display: block;font-size: 1.4em;text-transform: none;line-height: 1.5}
+.order_details li:last-of-type {border: none}
+address{border-left: 3px solid #f45245;padding-left: 15px;font-size: 15px;}
+address {margin: 0 0 1.5em;font-style: italic;font-family: Geogria, serif, "Times New Roman";background: white;border-radius: 4px;}

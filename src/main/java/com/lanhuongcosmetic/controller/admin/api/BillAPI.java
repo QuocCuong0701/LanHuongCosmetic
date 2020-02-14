@@ -24,32 +24,32 @@ public class BillAPI extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
-        BillModel billModel= HttpUtil.of(req.getReader()).toModel(BillModel.class);
-        billModel=iBillService.save(billModel);
-        mapper.writeValue(resp.getOutputStream(),billModel);
+        BillModel billModel = HttpUtil.of(req.getReader()).toModel(BillModel.class);
+        billModel = iBillService.save(billModel);
+        mapper.writeValue(resp.getOutputStream(), billModel);
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
-        BillModel billModel= HttpUtil.of(req.getReader()).toModel(BillModel.class);
-        billModel=iBillService.update(billModel);
-        mapper.writeValue(resp.getOutputStream(),billModel);
+        BillModel billModel = HttpUtil.of(req.getReader()).toModel(BillModel.class);
+        billModel = iBillService.update(billModel);
+        mapper.writeValue(resp.getOutputStream(), billModel);
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
-        BillModel billModel= HttpUtil.of(req.getReader()).toModel(BillModel.class);
+        BillModel billModel = HttpUtil.of(req.getReader()).toModel(BillModel.class);
         iBillService.delete(billModel.getIds());
-        mapper.writeValue(resp.getOutputStream(),"{}");
+        mapper.writeValue(resp.getOutputStream(), "{}");
     }
 }

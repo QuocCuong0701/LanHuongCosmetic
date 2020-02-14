@@ -20,50 +20,48 @@
                 <hr class="soften">
                 <form action="/cart?act=update" method="post" id="formSubmit">
                     <div class="table-responsive" style="background: white">
-                        <c:if test="${not empty cart}">
-                            <table class="table table-bordered">
-                                <thead>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>Sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Tổng</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="rows" items="${cart}">
                                 <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th>Sản phẩm</th>
-                                    <th>Giá</th>
-                                    <th>Số lượng</th>
-                                    <th>Tổng</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach var="rows" items="${cart}">
-                                    <tr>
-                                        <td>
-                                            <a href="<c:url value="/cart?act=remove&product_id=${rows.value.productModel.product_id}"/>"
-                                               class="btn btn-mini btn-danger" style="border-radius: 50%;" title="Xóa sản phẩm">
-                                                <span class="icon-remove"></span>
-                                            </a>
-                                            <input id="product_id" name="product_id" value="${rows.value.productModel.product_id}" type="hidden" />
-                                        </td>
-                                        <td><img width="50px" src="<c:url value="${rows.value.productModel.product_image}"/>" alt=""></td>
-                                        <td>${rows.value.productModel.product_name}</td>
-                                        <td>${rows.value.productModel.product_price} &#8363;</td>
-                                        <td>
-                                            <input id="quantity" size="16" type="number" value="${rows.value.quantity}"
-                                                   style="max-width:34px" placeholder="Sl." name="quantity"/>
-                                        </td>
-                                        <td><c:out value="${rows.value.quantity * rows.value.productModel.product_price}"></c:out> &#8363;</td>
-                                    </tr>
-                                </c:forEach>
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <td colspan="6">
-                                        <div class="controls" style="float: right">
-                                            <button type="submit" class="shopBtn" id="update-cart" name="update"><i class="icon-refresh"></i> CẬP NHẬT GIỎ HÀNG</button>
-                                        </div>
+                                    <td>
+                                        <a href="<c:url value="/cart?act=remove&product_id=${rows.value.productModel.product_id}"/>"
+                                           class="btn btn-mini btn-danger" style="border-radius: 50%;" title="Xóa sản phẩm">
+                                            <span class="icon-remove"></span>
+                                        </a>
+                                        <input id="product_id" name="product_id" value="${rows.value.productModel.product_id}" type="hidden" />
                                     </td>
+                                    <td><img width="50px" src="<c:url value="${rows.value.productModel.product_image}"/>" alt=""></td>
+                                    <td>${rows.value.productModel.product_name}</td>
+                                    <td>${rows.value.productModel.product_price} &#8363;</td>
+                                    <td>
+                                        <input id="quantity" size="16" type="number" value="${rows.value.quantity}"
+                                               style="max-width:34px" placeholder="Sl." name="quantity"/>
+                                    </td>
+                                    <td><c:out value="${rows.value.quantity * rows.value.productModel.product_price}"></c:out> &#8363;</td>
                                 </tr>
-                                </tfoot>
-                            </table>
-                        </c:if>
+                            </c:forEach>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="controls" style="float: right">
+                                        <button type="submit" class="shopBtn" id="update-cart" name="update"><i class="icon-refresh"></i> CẬP NHẬT GIỎ HÀNG</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </form>
                 <br>
@@ -96,7 +94,7 @@
                 <a href="login.html" class="shopBtn btn-large pull-right" style="display: none">Tiếp theo <span class="icon-arrow-right"></span></a>
             </div>
         </c:if>
-        <c:if test="${cart.size() <= 0}">
+        <c:if test="${cart.size() == 0 || cart == null}">
             <div class="well well-small">
                 <h1>Giỏ hàng</h1>
                 <hr class="soften">
@@ -108,7 +106,7 @@
     </div>
 </div>
 <script>
-    $('#update-cart').change(function (e) {
+    /*$('#update-cart').change(function (e) {
         e.preventDefault();
         var data = {};
         var ids = $('tbody input[type=number]').map(function () {
@@ -120,7 +118,7 @@
                 $('#update-cart').val(1)
             }
         }
-    }).change();
+    }).change();*/
 </script>
 </body>
 </html>

@@ -6,6 +6,7 @@ import com.lanhuongcosmetic.paging.Pageble;
 import com.lanhuongcosmetic.service.IBillService;
 
 import javax.inject.Inject;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class BillService implements IBillService {
@@ -40,6 +41,11 @@ public class BillService implements IBillService {
     public BillModel findOne(int bill_id) {
         BillModel billModel = iBillDAO.findOne(bill_id);
         return billModel;
+    }
+
+    @Override
+    public BillModel findOneByIdAndDate(int user_id, Timestamp date) {
+        return iBillDAO.findOneByIdAndDate(user_id, date);
     }
 
     @Override

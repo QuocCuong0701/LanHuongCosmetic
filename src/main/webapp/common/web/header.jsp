@@ -66,12 +66,10 @@
                             <div class="dropdown-menu">
                                 <form class="form-horizontal loginFrm" action="<c:url value='/dang-nhap'/>" method="post" style="height: 120px">
                                     <div class="control-group">
-                                        <input type="text" class="span2" id="inputEmail" placeholder="Tên đăng nhập"
-                                               name="user_name">
+                                        <input type="text" class="span2" id="input_Email" placeholder="Tên đăng nhập" name="user_name">
                                     </div>
                                     <div class="control-group">
-                                        <input type="password" class="span2" id="inputPassword" placeholder="Mật khẩu"
-                                               name="user_pass">
+                                        <input type="password" class="span2" id="input_Password" placeholder="Mật khẩu" name="user_pass">
                                     </div>
                                     <div class="control-group">
                                         <input type="hidden" value="login" id="action" name="action"/>

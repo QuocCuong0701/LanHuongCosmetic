@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(urlPatterns = {"/api-admin-user"})
 public class UserAPI extends HttpServlet {
@@ -29,8 +30,18 @@ public class UserAPI extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
         UserModel addUser = HttpUtil.of(req.getReader()).toModel(UserModel.class);
-        iUserService.save(addUser);
-        mapper.writeValue(resp.getOutputStream(), addUser);
+        List<UserModel> allUser = iUserService.findAllUserName();
+        boolean check = true;
+        for (UserModel userModel : allUser) {
+            if (addUser.getUser_name().equalsIgnoreCase(userModel.getUser_name())) {
+                check = false;
+                break;
+            }
+        }
+        if (check) {
+            iUserService.save(addUser);
+            mapper.writeValue(resp.getOutputStream(), addUser);
+        }
     }
 
     @Override

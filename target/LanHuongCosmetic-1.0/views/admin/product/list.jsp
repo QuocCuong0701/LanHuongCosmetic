@@ -37,15 +37,15 @@
 											<a flag="info"
 											   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip"
 											   title='Thêm sản phẩm' href='<c:url value="/admin-product?type=edit"/>'>
-														<span>
-															<i class="fa fa-plus-circle bigger-110 purple"></i>
-														</span>
+													<span>
+														<i class="fa fa-plus-circle bigger-110 purple"></i>
+													</span>
 											</a>
-											<button id="btnDelete" type="button"
-													class="dt-button buttons-html5 btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='Xóa sản phẩm'>
-															<span>
-																<i class="fa fa-trash-o bigger-110 pink"></i>
-															</span>
+											<button id="btnDelete" type="button" class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+													data-toggle="tooltip" title='Xóa sản phẩm'>
+													<span>
+														<i class="fa fa-trash-o bigger-110 pink"></i>
+													</span>
 											</button>
 										</div>
 									</div>

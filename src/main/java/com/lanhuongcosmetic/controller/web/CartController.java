@@ -43,7 +43,7 @@ public class CartController extends HttpServlet {
             if (cartModels == null) {
                 cartModels = new HashMap<>();
             }
-            if (action != null && action.equals("add") && req.getParameter("product_id") != null) {
+            if (req.getParameter("product_id") != null) {
                 ProductModel productModel = iProductService.findOneByProductId(product_id);
                 if (productModel != null) {
                     if (cartModels.containsKey(product_id)) {
@@ -64,12 +64,7 @@ public class CartController extends HttpServlet {
             if (cartModels == null) {
                 cartModels = new HashMap<>();
             }
-            if (cartModels.containsKey(product_id)) {
-                cartModels.remove(product_id);
-            }
-        } else if (action != null && action.equals("view-cart")) {
-            RequestDispatcher rd = req.getRequestDispatcher("/views/web/cart/cart.jsp");
-            rd.forward(req, resp);
+            cartModels.remove(product_id);
         }
         httpSession.setAttribute(SystemConstant.MODEL, cartModels);
         if (cartModels != null) {
@@ -103,9 +98,7 @@ public class CartController extends HttpServlet {
             }
             httpSession.setAttribute(SystemConstant.MODEL, cartModels);
         }
-        if (cartModels != null) {
-            httpSession.setAttribute("totalPrice", totalPrice(cartModels));
-        }
+        httpSession.setAttribute("totalPrice", totalPrice(cartModels));
         RequestDispatcher rd = req.getRequestDispatcher("/views/web/cart/cart.jsp");
         rd.forward(req, resp);
     }

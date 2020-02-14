@@ -10,8 +10,7 @@ insert into category(category_name) values('trị nám'),('trang điểm mặt')
 ,('xịt khoáng'),('sữa dưỡng'),('chống nẻ'),('nước hoa hồng'),('dưỡng tay'),('trang điểm mắt')
 ,('muối tắm'),('tẩy lông');
 
-insert into product(product_name,product_price,category_id) values('Chống nắng trang điểm',100000,1),
-('Serum trẻ hóa',200000,2);
+insert into product(product_name,product_price,category_id) values('SON DƯỠNG MÔI INNISFREE GLOW TINT LIP',100000,1);
 insert into product(product_name,product_price,category_id) values('Viên uống trắng da Glutathione Ever Collagen',100000,1),
 ('Tinh chất dưỡng da chiết xuất trà xanh innisfree the',100000,1),
 ('Bộ mỹ phẩm dưỡng trắng da 3w cilic skin care set',100000,1),
@@ -19,9 +18,8 @@ insert into product(product_name,product_price,category_id) values('Viên uống
 ('DƯỠNG CHẤT BERGAMO VÀNG -DƯỠNG TRẮNG TRẺ',100000,1),
 ('Dầu Tẩy trang kose soffy deep cleansing – 230ml',100000,1),
 ('Phấn phủ chou chou siêu mịn – kiềm dầu – Hàn Quốc',100000,1),
-('Cặp Dầu Gội Xả Grapefruit Bưởi Trị Rụng Tóc Cao Cấp',100000,1);
-
-insert into product(product_name,product_price,category_id) values('Sữa Rửa Mặt Giữ Ẩm Bong Bóng Moisturizing Bubble Facial Wash',100000,1),
+('Cặp Dầu Gội Xả Grapefruit Bưởi Trị Rụng Tóc Cao Cấp',100000,1),
+('Sữa Rửa Mặt Giữ Ẩm Bong Bóng Moisturizing Bubble Facial Wash',100000,1),
 ('Kem Tan Mỡ Bụng -Slimming Cream',100000,2),
 ('Mặt nạ ngủ vàng 24K - 24K Gold Sleeping Mask',100000,3),
 ('Bộ dưỡng trắng da toàn thân Body Silk',100000,4),

@@ -3,6 +3,7 @@ package com.lanhuongcosmetic.controller.web;
 import com.lanhuongcosmetic.model.CategoryModel;
 import com.lanhuongcosmetic.service.ICategoryService;
 import com.lanhuongcosmetic.utils.FormUtil;
+import com.lanhuongcosmetic.utils.MessageUtil;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -23,6 +24,7 @@ public class RegistrationController extends HttpServlet {
         CategoryModel categoryModel = FormUtil.toModel(CategoryModel.class, req);
         categoryModel.setListResult(iCategoryService.findAll());
         req.setAttribute("categories", categoryModel);
+        MessageUtil.showMessage(req);
         RequestDispatcher rd = req.getRequestDispatcher("/views/web/registration/registration.jsp");
         rd.forward(req, resp);
     }

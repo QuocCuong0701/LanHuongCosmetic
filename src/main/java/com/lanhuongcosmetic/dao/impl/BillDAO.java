@@ -6,6 +6,7 @@ import com.lanhuongcosmetic.model.BillModel;
 import com.lanhuongcosmetic.paging.Pageble;
 import org.apache.commons.lang.StringUtils;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public class BillDAO extends AbstractDAO<BillModel> implements IBillDAO {
@@ -24,15 +25,15 @@ public class BillDAO extends AbstractDAO<BillModel> implements IBillDAO {
 
     @Override
     public int save(BillModel billModel) {
-        StringBuilder sql=new StringBuilder("INSERT INTO bill(user_id, full_name, total, address, phone, date, status) ");
+        StringBuilder sql = new StringBuilder("INSERT INTO bill(user_id, full_name, total, address, phone, date, status) ");
         sql.append("VALUES (?,?,?,?,?,?,?)");
-        return insert(sql.toString(),billModel.getUser_id(), billModel.getFull_name(), billModel.getTotal(), billModel.getAddress(),
+        return insert(sql.toString(), billModel.getUser_id(), billModel.getFull_name(), billModel.getTotal(), billModel.getAddress(),
                 billModel.getPhone(), billModel.getDate(), 0);
     }
 
     @Override
     public void update(BillModel billModel) {
-        String sql="UPDATE bill SET status = ? WHERE bill_id = ?";
+        String sql = "UPDATE bill SET status = ? WHERE bill_id = ?";
         update(sql, billModel.isStatus(), billModel.getBill_id());
     }
 
@@ -44,14 +45,21 @@ public class BillDAO extends AbstractDAO<BillModel> implements IBillDAO {
 
     @Override
     public BillModel findOne(int bill_id) {
-        String sql="SELECT * FROM bill WHERE bill_id = ?";
+        String sql = "SELECT * FROM bill WHERE bill_id = ?";
         List<BillModel> billModels = query(sql, new BillMapper(), bill_id);
         return billModels.isEmpty() ? null : billModels.get(0);
     }
 
     @Override
+    public BillModel findOneByIdAndDate(int user_id, Timestamp date) {
+        String sql = "SELECT * FROM bill WHERE user_id = ? AND date = ?";
+        List<BillModel> billModels = query(sql, new BillMapper(), user_id, date);
+        return billModels.isEmpty() ? null : billModels.get(0);
+    }
+
+    @Override
     public int getTotalItem() {
-        String sql="SELECT count(*) FROM bill";
+        String sql = "SELECT count(*) FROM bill";
         return count(sql);
     }
 }

@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
@@ -36,7 +37,8 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
-        if (action != null && action.equals("login")) {
+        HttpSession httpSession = req.getSession();
+        /*if (action != null && action.equals("login")) {
             String alert = req.getParameter("alert");
             String message = req.getParameter("message");
             if (message != null && alert != null) {
@@ -45,7 +47,9 @@ public class HomeController extends HttpServlet {
             }
             RequestDispatcher rd = req.getRequestDispatcher("/views/web/home.jsp");
             rd.forward(req, resp);
-        } else if (action != null && action.equals("logout")) {
+        } else*/
+        if (action != null && action.equals("logout")) {
+            httpSession.invalidate();
             SessionUtil.getInstance().removeValue(req, "USERMODEL");
             resp.sendRedirect(req.getContextPath() + "/trang-chu");
         } else {
@@ -56,14 +60,6 @@ public class HomeController extends HttpServlet {
             CategoryModel categoryLimit4 = FormUtil.toModel(CategoryModel.class, req);
             categoryLimit4.setListResult(iCategoryService.findAllLimit4());
             req.setAttribute("categoriesLimit4", categoryLimit4);
-
-            /*for (CategoryModel categories : categoryLimit4.getListResult()) {
-                ProductModel productLimit6 = FormUtil.toModel(ProductModel.class, req);
-                productLimit6.setListResult(iProductService.findAllLimit6(categories.getCategory_id()));
-                req.setAttribute("productLimit6", productLimit6);
-            }*/
-            /*productLimit9.setListResult(iProductService.findAllLimit9(categoryLimit4.getCategory_id()));*/
-            //productLimit9.setListResult(iProductService.findAllLimit9(1));
 
             ProductModel productLimit6 = FormUtil.toModel(ProductModel.class, req);
             productLimit6.setListResult(iProductService.findAllLimit6(1));
@@ -83,9 +79,9 @@ public class HomeController extends HttpServlet {
             userModel = iUserService.findByUserNameAndPassword(userModel.getUser_name(), userModel.getUser_pass());
             if (userModel != null) {
                 SessionUtil.getInstance().putValue(req, "USERMODEL", userModel);
-                if (userModel.getUser_role() == false) {
+                if (!userModel.getUser_role()) {
                     resp.sendRedirect(req.getContextPath() + "/admin-home");
-                } else if (userModel.getUser_role() == true) {
+                } else {
                     resp.sendRedirect(req.getContextPath() + "/trang-chu");
                 }
             } else {

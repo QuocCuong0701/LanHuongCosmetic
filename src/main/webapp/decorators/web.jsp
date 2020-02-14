@@ -61,6 +61,5 @@
 <script src="<c:url value='/template/web/js/jquery.easing-1.3.min.js'/>"></script>
 <script src="<c:url value='/template/web/js/jquery.scrollTo-1.4.3.1-min.js'/>"></script>
 <script src="<c:url value='/template/web/js/shop.js'/>"></script>
-<script src="<c:url value='/template/web/js/jquery.validate.js'/>"></script>
 </body>
 </html>

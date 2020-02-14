@@ -3,6 +3,7 @@ package com.lanhuongcosmetic.service;
 import com.lanhuongcosmetic.model.BillModel;
 import com.lanhuongcosmetic.paging.Pageble;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public interface IBillService {
@@ -11,5 +12,6 @@ public interface IBillService {
     BillModel update(BillModel billModel);
     void delete(int[] ids);
     BillModel findOne(int bill_id);
+    BillModel findOneByIdAndDate(int user_id, Timestamp date);
     int getTotalItem();
 }

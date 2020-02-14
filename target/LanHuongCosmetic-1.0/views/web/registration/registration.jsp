@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <c:url var="APIurl" value="/api-admin-user"/>
+<c:url var ="RegistrationURL" value="/registration"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,151 +13,118 @@
     <%@include file="/common/web/left-menu.jsp"%>
     <div class="span9">
         <ul class="breadcrumb">
-            <li><a href="index.html">Trang chủ</a> <span class="divider">/</span></li>
+            <li><a href="<c:url value="/trang-chu"/>">Trang chủ</a> <span class="divider">/</span></li>
             <li class="active">Đăng ký</li>
         </ul>
         <h3>Đăng Ký Tài Khoản</h3>
         <hr class="soft">
         <div class="well">
+            <c:if test="${not empty messageResponse}">
+                <div class="alert alert-${alert}">
+                        ${messageResponse}
+                </div>
+            </c:if>
             <form class="form-horizontal" action="/registration" method="post" id="formSubmit">
                 <h3>Thông tin đăng ký</h3>
                 <div class="control-group">
                     <label class="control-label" for="inputUserName">Tên đăng nhập<sup>*</sup></label>
                     <div class="controls">
                         <input type="text" id="inputUserName" name="user_name" placeholder="Tên đăng nhập">
-                        <span id="userNameError"></span>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputEmail">Email <sup>*</sup></label>
                     <div class="controls">
-                        <input type="email" id="inputEmail" name="user_email" placeholder="Email">
-                        <span id="emailError"></span>
+                        <input type="email" id="inputEmail" name="user_email" placeholder="john@gmail.com">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="password">Mật khẩu <sup>*</sup></label>
                     <div class="controls">
                         <input type="password" id="password" name="user_pass" placeholder="Mật khẩu">
-                        <span id="passError"></span>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="rePassword">Nhập lại mật khẩu <sup>*</sup></label>
                     <div class="controls">
-                        <input type="password" id="rePassword" name="user_rePass" placeholder="Nhập lại mật khẩu">
-                        <span id="rePassError"></span>
+                        <input type="password" id="rePassword" placeholder="Nhập lại mật khẩu">
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <input type="button" name="submitAccount" id="submitAccount" value="Đăng ký" class="exclusive shopBtn"/>
+                        <input type="submit" name="submitAccount" id="submitAccount" value="Đăng ký" class="exclusive shopBtn"/>
                     </div>
                 </div>
             </form>
         </div>
         <hr class="soft">
         <div class="well">
-            <form class="form-horizontal" action="/registration" method="post" id="formLogin">
-                <h5>BẠN ĐÃ CÓ TÀI KHOẢN ?</h5>
-                <form>
-                    <div class="control-group">
-                        <label class="control-label" for="userName">Tên đăng nhập<sup>*</sup></label>
-                        <div class="controls">
-                            <input type="text" id="userName" name="user_name" placeholder="Tên đăng nhập">
-                        </div>
+            <h5>BẠN ĐÃ CÓ TÀI KHOẢN ?</h5>
+            <form action="<c:url value='/dang-nhap'/>" method="post" class="form-horizontal" id="formLogin">
+                <div class="control-group">
+                    <label class="control-label" for="userName">Tên đăng nhập<sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" id="userName" name="user_name" placeholder="Tên đăng nhập">
                     </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputPassword">Mật khẩu<sup>*</sup></label>
-                        <div class="controls">
-                            <input type="password" id="inputPassword" class="span3" placeholder="Mật khẩu">
-                        </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Mật khẩu<sup>*</sup></label>
+                    <div class="controls">
+                        <input type="password" id="inputPassword" name="user_pass" class="span3" placeholder="Mật khẩu">
                     </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <button type="submit" class="shopBtn">Đăng nhập</button>
-                        </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="hidden" value="login" id="action" name="action"/>
+                        <button type="submit" name="action" value="login" class="shopBtn">Đăng nhập</button>
                     </div>
-                </form>
+                </div>
             </form>
         </div>
     </div>
 </div>
 <script>
-   $(document).ready(function () {
-       $('#submitAccount').click(function () {
-           $('#formSubmit').validate({
-               rules: {
-                   user_name: {
-                       required: true,
-                       minlength: 1,
-                       maxlength: 32
-                   },
-                   user_email: {
-                       required: true,
-                       email: true
-                   },
-                   user_pass: {
-                       required: true,
-                       minlength: 5,
-                       maxlength: 20
-                   },
-                   user_rePass: {
-                       required: true,
-                       equalTo: "#password"
-                   }
-               },
-               message: {
-                   user_name: {
-                       minlength: "Tên phải từ 1 - 32 ký tự.",
-                       maxlength: "Tên phải từ 1 - 32 ký tự."
-                   },
-                   user_email: "Email không hợp lệ.",
-                   user_pass: {
-                       minlength: "Mật khẩu phải từ 5 - 20 ký tự.",
-                       maxlength: "Mật khẩu phải từ 5 - 20 ký tự."
-                   },
-                   user_rePass: "Mật khẩu không khớp."
-               }
-           });
-           /*var userName = $('#inputUserName').val();
-           var userPassword = $('#password').val();
-           var userRePass = $('#rePassword').val();
-           if (userName.trim().length === 0 || userName.trim().length > 32) {
-               $('#userNameError').text('Tên phải từ 1 - 32 ký tự.');
-           } else
-           if (userPassword.trim().length <= 4 || userPassword.trim().length > 20) {
-               $('#passError').text('Mật khẩu phải từ 5 - 20 ký tự.');
-           } else
-           if (!userRePass.match(userPassword)) {
-               $('#rePassError').text('Mật khẩu không khớp.');
-           } else
-           if (!validate()) {
-               $('#emailError').text('Email không hợp lệ.');
-           }
-           else {
-               let data = {};
-               let formData = $('#formSubmit').serializeArray();
-               $.each(formData, function (i, v) {
-                   data["" + v.name + ""] = v.value;
-               });
-               addAccount(data);
-               alert(data.toString());
-           }*/
-       });
-   });
-
-    function validateEmail(email) {
-        var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
-
-    function validate() {
-        //var $result = $("#emailError");
-        var email = document.getElementById('inputEmail');
-        //$result.text("");
-        return validateEmail(email);
-    }
+    $(document).ready(function () {
+        $('#formSubmit').submit(function (e) {
+            e.preventDefault();
+            var userName = $('#inputUserName').val();
+            var userEmail = $('#inputEmail').val();
+            var userPassword = $('#password').val();
+            var userRePass = $('#rePassword').val();
+            $('.error').remove();
+            if (userName.length < 1 || userName.length > 32) {
+                $('#inputUserName').after('<span class="error"> Tên phải từ 1 - 32 ký tự.</span>');
+            }
+            if (userEmail.length < 1) {
+                $('#inputEmail').after('<span class="error"> Điền địa chỉ email.</span>');
+            } else {
+                var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                var validEmail = regEx.test(userEmail);
+                if (!validEmail) {
+                    $('#inputEmail').after('<span class="error"> Email không hợp lệ.</span>');
+                }
+            }
+            if (userPassword.length <= 4 || userPassword.length > 20) {
+                $('#password').after('<span class="error"> Mật khẩu phải từ 5 - 20 ký tự.</span>');
+            }
+            if (userRePass.length < 1) {
+                $('#rePassword').after('<span class="error"> Nhập lại mật khẩu.</span>');
+            } else if (!userRePass.match(userPassword)) {
+                $('#rePassword').after('<span class="error"> Mật khẩu không khớp.</span>');
+            }
+            let error = $('form span').map(function () {
+                return $(this).val();
+            }).get();
+            if (error.length === 0) {
+                let data = {};
+                let formData = $('#formSubmit').serializeArray();
+                $.each(formData, function (i, v) {
+                    data["" + v.name + ""] = v.value;
+                });
+                addAccount(data);
+            }
+        });
+    });
 
     function addAccount(data) {
         $.ajax({
@@ -166,10 +134,14 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                console.log("OK "+result);
+                if (result != null) {
+                    window.location.href = "${RegistrationURL}?message=create_account_success";
+                } else {
+                    window.location.href = "${RegistrationURL}?message=create_account_error";
+                }
             },
             error: function (error) {
-                console.log("ERROR "+error);
+                window.location.href = "${RegistrationURL}?message=error_system";
             }
         });
     }

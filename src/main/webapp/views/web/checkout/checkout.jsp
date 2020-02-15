@@ -152,7 +152,7 @@
        }).toArray();
         let link = "/checkout/order-received?user_id=${USERMODEL.user_id}&date=" + data.date;
         addBill(data);
-        window.open(link);
+        window.open(link, "_self");
     });
 
     function addBill(data) {

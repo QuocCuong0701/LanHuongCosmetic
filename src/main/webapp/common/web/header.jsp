@@ -12,9 +12,13 @@
                 </a>
             </h1>
         </div>
+        <c:set var="cart" value="${sessionScope.model}" />
         <div class="span4 alignR" style="float:right;">
             <p><br> <strong> Hỗ trợ (24/7) : 0800 1234 678 </strong><br><br></p>
-            <span class="btn btn-mini">[ 2 ] <span class="icon-shopping-cart"></span></span>
+            <span class="btn btn-mini">[
+                <c:if test="${cart == null}">0</c:if>
+                <c:if test="${cart != null}">${cart.size()}</c:if>
+                ] <span class="icon-shopping-cart"></span></span>
         </div>
     </div>
 </header>
@@ -30,11 +34,10 @@
             </a>
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="/trang-chu">Trang chủ</a></li>
-                    <li class=""><a href="/product?page=1">Sản phẩm</a></li>
-                    <li class=""><a href="/about-us">Giới thiệu</a></li>
-                    <li class=""><a href="three-col.html">Three Column</a></li>
-                    <li class=""><a href="four-col.html">Four Column</a></li>
+                    <li class="active"><a href="/trang-chu">Trang Chủ</a></li>
+                    <li class=""><a href="/product?page=1">Sản Phẩm</a></li>
+                    <li class=""><a href="/about-us">Giới Thiệu</a></li>
+                    <li class=""><a href="#">Liên Hệ</a></li>
                 </ul>
                 <form action="#" class="navbar-search pull-left">
                     <input type="text" placeholder="Tìm kiếm" class="search-query span2">

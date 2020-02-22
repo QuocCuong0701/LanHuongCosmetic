@@ -7,39 +7,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Thanh toán</title>
-    <%--<style>
-        .order_details:after{
-            clear: both
-        }
-        .order_details {
-            margin: 0 0 1.5em;
-            list-style: none
-        }
-        .order_details:after,.order_details:before {
-            content: " ";
-            display: table
-        }
-        .order_details li {
-            float: left;
-            margin-right: 2em;
-            text-transform: uppercase;
-            font-size: .715em;
-            line-height: 1;
-            border-right: 1px dashed #d3ced2;
-            padding-right: 2em;
-            margin-left: 0;
-            padding-left: 0
-        }
-        .order_details li strong {
-            display: block;
-            font-size: 1.4em;
-            text-transform: none;
-            line-height: 1.5
-        }
-        .order_details li:last-of-type {
-            border: none
-        }
-    </style>--%>
 </head>
 <body>
 <div class="row">
@@ -123,8 +90,9 @@
 <script>
     $(document).onload(function () {
         let data = {};
-
         addBillDetail(data);
+        location.reload(true);
+        location.reload(false);
     });
 
     function addBillDetail(data) {

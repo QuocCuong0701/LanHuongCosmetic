@@ -18,7 +18,7 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="<c:url value="/admin-home"></c:url>">Trang chủ</a>
                 </li>
-                <li class="active">Chỉnh sửa thông tin sản phẩm</li>
+                <li class="active">Thêm sản phẩm</li>
             </ul>
         </div>
         <div class="page-content">

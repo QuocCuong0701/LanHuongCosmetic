@@ -49,7 +49,7 @@ hr.soften {margin: 8px 0;background: #DDD;}
 .carousel-control.right{right: -15600px;}
 .carousel:hover .carousel-control.right{right: 8px; left: auto;}
 .carousel:hover .carousel-control.left{left: 8px;}
-.alignR{float: right; text-align:right;}
+.alignR{text-align:right;}
 .control-label.alignL, .alignL{text-align:left;}
 .loginFrm{ margin-bottom:8px;}
 .loginFrm .control-group{padding:8px 14px 0; margin-bottom:0 }
@@ -80,7 +80,7 @@ hr.soften {margin: 8px 0;background: #DDD;}
 #sidebar a.defaultBtn:hover, .defaultBtn:hover{color:#fff; text-decoration:none; background:#333}
 #sidebar .nav a.zoomTool{color:#fff} 
 .thumbnail>a{display:block; text-align:center}
-.carousel-caption {background: transparent;background: transparent;}
+.carousel-caption {background: transparent;}
 #compairTbl td{text-align:center;}
 .justify{text-align:justify;}
 .table td[align=right] {text-align: right;}
@@ -124,3 +124,5 @@ hr.soften {margin: 8px 0;background: #DDD;}
 .order_details li:last-of-type {border: none}
 address{border-left: 3px solid #f45245;padding-left: 15px;font-size: 15px;}
 address {margin: 0 0 1.5em;font-style: italic;font-family: Geogria, serif, "Times New Roman";background: white;border-radius: 4px;}
+.intro p{text-align: justify;}
+.intro h3, .intro h5, .intro p{margin: 0 20px 10px 20px}

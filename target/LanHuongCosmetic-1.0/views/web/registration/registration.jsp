@@ -58,7 +58,7 @@
             </form>
         </div>
         <hr class="soft">
-        <div class="well">
+        <div class="well" style="display: none">
             <h5>BẠN ĐÃ CÓ TÀI KHOẢN ?</h5>
             <form action="<c:url value='/dang-nhap'/>" method="post" class="form-horizontal" id="formLogin">
                 <div class="control-group">

@@ -12,6 +12,18 @@
                 </li>
             </c:forEach>
             <li style="border:0"> &nbsp;</li>
+            <c:set var="cart" value="${sessionScope.model}" />
+            <li>
+                <a class="totalInCart" href="<c:url value="/cart"/>">
+                    <strong>Tổng Giỏ Hàng
+                        <span class="badge badge-warning pull-right" style="line-height:18px;">
+                            <c:if test="${cart == null}">0 </c:if>
+                            <c:if test="${cart != null}">${sessionScope.totalPrice} </c:if>
+                            &#8363;
+                        </span>
+                    </strong>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -25,12 +37,12 @@
     <ul class="nav nav-list promowrapper">
         <li>
             <div class="thumbnail">
-                <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span>
-                    QUICK VIEW</a>
-                <img src="assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
+                <a href="<c:url value="/product-detail?product_id=5"/>" title="add to cart">
+                    <img src="<c:url value="/template/web/img/5.jpg"/>" alt="bootstrap ecommerce templates">
+                </a>
                 <div class="caption">
-                    <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span
-                            class="pull-right">$22.00</span></h4>
+                    <h4><a class="defaultBtn" href="<c:url value="/product-detail?product_id=5"/>">Xem</a> <span
+                            class="pull-right">100000 &#8363;</span></h4>
                 </div>
             </div>
         </li>

@@ -38,16 +38,6 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         HttpSession httpSession = req.getSession();
-        /*if (action != null && action.equals("login")) {
-            String alert = req.getParameter("alert");
-            String message = req.getParameter("message");
-            if (message != null && alert != null) {
-                req.setAttribute("message", resourceBundle.getString(message));
-                req.setAttribute("alert", alert);
-            }
-            RequestDispatcher rd = req.getRequestDispatcher("/views/web/home.jsp");
-            rd.forward(req, resp);
-        } else*/
         if (action != null && action.equals("logout")) {
             httpSession.invalidate();
             SessionUtil.getInstance().removeValue(req, "USERMODEL");

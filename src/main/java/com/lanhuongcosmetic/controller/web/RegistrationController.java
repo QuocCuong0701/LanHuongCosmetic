@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/registration"})
+@WebServlet(urlPatterns = {"/registration", "/account"})
 public class RegistrationController extends HttpServlet {
     @Inject
     private ICategoryService iCategoryService;
@@ -24,8 +24,14 @@ public class RegistrationController extends HttpServlet {
         CategoryModel categoryModel = FormUtil.toModel(CategoryModel.class, req);
         categoryModel.setListResult(iCategoryService.findAll());
         req.setAttribute("categories", categoryModel);
+        String view = "";
+        if (req.getRequestURI().endsWith("account")) {
+            view = "/views/web/account/account.jsp";
+        } else {
+            view = "/views/web/registration/registration.jsp";
+        }
         MessageUtil.showMessage(req);
-        RequestDispatcher rd = req.getRequestDispatcher("/views/web/registration/registration.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher(view);
         rd.forward(req, resp);
     }
 

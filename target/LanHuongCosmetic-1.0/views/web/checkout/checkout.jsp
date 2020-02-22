@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <c:url var="APIurl" value="/api-admin-bill"/>
+<c:url var="APIurl1" value="/api-admin-billDetail"/>
 <c:url var ="BillURL" value=""/>
 <!DOCTYPE html>
 <html>
@@ -147,11 +148,22 @@
        });
        data["total"] = ${sessionScope.totalPrice};
        data["date"] = Date.parse((new Date()).toISOString());
-       let billDetailData = $('#billTable input').map(function () {
-           return $(this).val();
-       }).toArray();
-        let link = "/checkout/order-received?user_id=${USERMODEL.user_id}&date=" + data.date;
+       let bilDetail = [];
+
+      /* $('#billTable > tbody > tr').each(function (index,tr) {
+           let rowObject = {};
+           //console.log(row.childNodes[0].val());
+           console.log(row.childNodes[1].value);
+           let count = 0;
+           $(this).find('td').each (function() {
+               count ++;
+               console.log($(this).context.innerText)
+
+           });
+       });*/
+       let link = "/checkout/order-received?user_id=${USERMODEL.user_id}&date=" + data.date;
         addBill(data);
+        //addBillDetail(billDetailData);
         window.open(link);
     });
 
@@ -170,7 +182,21 @@
             }
         });
     }
-
+    function addBillDetail(data) {
+        $.ajax({
+            url: '${APIurl1}',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function (result) {
+                console.log("SUCCESS" + result);
+            },
+            error: function (error) {
+                console.log("ERROR" + error);
+            }
+        });
+    }
 </script>
 </body>
 </html>

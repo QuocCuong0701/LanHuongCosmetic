@@ -150,57 +150,17 @@
         </div>
     </form>
 </div>
-<%--<!-- Modal -->
-<div class="modal fade" id="billDetailModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content" style="margin-top: 100px;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Chi tiết đơn hàng</h4>
-            </div>
-            <div class="modal-body">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Tên sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Số lượng</th>
-                        <th>Tổng</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="item1" items="${billDetails.listResult}">
-                        <tr>
-                            <td>${item1.product_name}</td>
-                            <td>${item1.product_price}</td>
-                            <td>${item1.quantity}</td>
-                            <td>${item1.total}</td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-success btn-edit" title="Xác nhận đơn hàng" style="width: 120px;">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"> Xác nhận</i>
-                </button>
-                <button type="button" class="btn btn-danger" title="Đóng" data-dismiss="modal">Đóng</button>
-            </div>
-        </div>
-    </div>
-</div>--%>
 <script>
 	$(document).ready(function () {
 		$('.billDetail').click(function (e) {
 		    e.preventDefault();
-//            $('#formSubmit').submit();
 			$('#billDetailModal').modal();
 		});
 	});
 
     var totalPages = ${model.totalPage};
     var currentPage = ${model.page};
-    var limit = 2;
+    var limit = 10;
     $(function () {
         window.pagObj = $('#pagination').twbsPagination({
             totalPages: totalPages,

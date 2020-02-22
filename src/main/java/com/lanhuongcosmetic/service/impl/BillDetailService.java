@@ -14,4 +14,15 @@ public class BillDetailService implements IBillDetailService {
     public List<BillDetailModel> findBillDetailByBillId(int bil_id) {
         return iBillDetailDAO.findBillDetailByBillId(bil_id);
     }
+
+    @Override
+    public BillDetailModel save(BillDetailModel billDetailModel) {
+        int bill_detail_id = iBillDetailDAO.save(billDetailModel);
+        return iBillDetailDAO.findOne(bill_detail_id);
+    }
+
+    @Override
+    public BillDetailModel findOne(int bill_detail_id) {
+        return iBillDetailDAO.findOne(bill_detail_id);
+    }
 }

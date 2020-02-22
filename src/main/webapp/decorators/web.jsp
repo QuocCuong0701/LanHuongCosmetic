@@ -13,6 +13,7 @@
     <script src="<c:url value="/template/paging/jquery.twbsPagination.js" />"></script>
 </head>
 <body>
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="topNav">
         <div class="container">
@@ -25,9 +26,11 @@
                     <a href="#"><span class="icon-tumblr"></span></a>
                 </div>
                 <a class="active" href="<c:url value="/trang-chu"/>"> <span class="icon-home"></span> Trang chủ</a>
-                <a href="#"><span class="icon-user"></span> Tài khoản</a>
+                <c:if test="${not empty USERMODEL}">
+                    <a href="<c:url value="/account"/>"><span class="icon-user"></span> Tài khoản</a>
+                </c:if>
                 <a href="<c:url value="/registration"/>"><span class="icon-edit"></span> Đăng ký </a>
-                <a href="contact.html"><span class="icon-envelope"></span> Liên hệ</a>
+                <a href="#"><span class="icon-envelope"></span> Liên hệ</a>
                 <a href="<c:url value="/cart"/>"><span class="icon-shopping-cart"></span>
                     <c:if test="${cart == null}">
                         0 Sản phẩm - <span class="badge badge-warning"> 0 &#8363;</span>
@@ -56,10 +59,13 @@
 <a href="#gototop" class="gotop"><i class="icon-double-angle-up"></i></a>
 
 <!-- Placed at the end of the document so the pages load faster -->
+
 <script src="<c:url value='/template/web/js/jquery.js'/>"></script>
 <script src="<c:url value='/template/web/js/bootstrap.min.js'/>"></script>
 <script src="<c:url value='/template/web/js/jquery.easing-1.3.min.js'/>"></script>
 <script src="<c:url value='/template/web/js/jquery.scrollTo-1.4.3.1-min.js'/>"></script>
 <script src="<c:url value='/template/web/js/shop.js'/>"></script>
+<script src="<c:url value='/template/web/js/jquery.dataTable.js'/>"></script>
+<script src="<c:url value='/template/web/js/data_table-1.0.0.js'/>"></script>
 </body>
 </html>

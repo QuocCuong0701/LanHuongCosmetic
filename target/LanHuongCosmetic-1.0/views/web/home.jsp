@@ -15,28 +15,28 @@
             <div id="myCarousel" class="carousel slide homCar">
                 <div class="carousel-inner">
                     <div class="item">
-                        <img style="width:100%" src="<c:url value="/template/web/img/bootstrap_free-ecommerce.png"/>" alt="bootstrap ecommerce templates">
+                        <img style="width:100%" src="<c:url value="/template/web/img/img1.jpg"/>" alt="bootstrap ecommerce templates">
                         <div class="carousel-caption">
-                            <h4>Bootstrap shopping cart</h4>
-                            <p><span>Very clean simple to use</span></p>
+                            <h4>Chuyên bán buôn - bán lẻ</h4>
+                            <p><span>cam kết hàng chính hãng</span></p>
                         </div>
                     </div>
                     <div class="item">
-                        <img style="width:100%" src="<c:url value="/template/web/img/carousel1.png"/>" alt="bootstrap ecommerce templates">
+                        <img style="width:100%" src="<c:url value="/template/web/img/img4.jpg"/>" alt="bootstrap ecommerce templates">
                         <div class="carousel-caption">
                             <h4>Bootstrap Ecommerce template</h4>
                             <p><span>Highly Google seo friendly</span></p>
                         </div>
                     </div>
                     <div class="item active">
-                        <img style="width:100%" src="<c:url value="/template/web/img/carousel3.png"/>" alt="bootstrap ecommerce templates">
+                        <img style="width:100%" src="<c:url value="/template/web/img/img5.png"/>" alt="bootstrap ecommerce templates">
                         <div class="carousel-caption">
                             <h4>Twitter Bootstrap cart</h4>
                             <p><span>Very easy to integrate and expand.</span></p>
                         </div>
                     </div>
                     <div class="item">
-                        <img style="width:100%" src="<c:url value="/template/web/img/bootstrap-templates.png"/>" alt="bootstrap templates">
+                        <img style="width:100%" src="<c:url value="/template/web/img/img6.png"/>" alt="bootstrap templates">
                         <div class="carousel-caption">
                             <h4>Bootstrap templates integration</h4>
                             <p><span>Compitable to many more opensource cart</span></p>

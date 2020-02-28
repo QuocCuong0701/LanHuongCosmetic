@@ -40,7 +40,7 @@
                     <li class=""><a href="#">Liên Hệ</a></li>
                 </ul>
                 <form action="#" class="navbar-search pull-left">
-                    <input type="text" placeholder="Tìm kiếm" class="search-query span2">
+                    <input style="display: none" type="text" placeholder="Tìm kiếm" class="search-query span2">
                 </form>
                 <ul class="nav pull-right" style="height: 40px">
                     <c:if test="${not empty USERMODEL}">

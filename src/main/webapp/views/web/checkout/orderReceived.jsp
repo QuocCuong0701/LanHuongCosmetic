@@ -9,6 +9,7 @@
     <title>Thanh toán</title>
 </head>
 <body>
+<c:set var="cart" value="${sessionScope.model}" />
 <div class="row">
     <%@include file="/common/web/left-menu.jsp"%>
     <div class="span9">
@@ -16,7 +17,6 @@
             <li><a href="<c:url value="/trang-chu"/>">Trang chủ</a> <span class="divider">/</span></li>
             <li class="active">Thanh toán</li>
         </ul>
-        <c:set var="cart" value="${sessionScope.model}" />
         <h3>Đơn Hàng Nhận Được</h3>
         <hr class="soft">
         <div class="well">
@@ -88,13 +88,6 @@
     </div>
 </div>
 <script>
-    $(document).onload(function () {
-        let data = {};
-        addBillDetail(data);
-        location.reload(true);
-        location.reload(false);
-    });
-
     function addBillDetail(data) {
         $.ajax({
             url: '${APIurl}',

@@ -10,6 +10,7 @@
     <title>Thanh toán</title>
 </head>
 <body>
+<c:set var="cart" value="${sessionScope.model}" />
 <ul class="breadcrumb">
     <li><a href="/trang-chu">Trang chủ</a> <span class="divider">/</span></li>
     <li class="active">Thanh toán</li>
@@ -50,7 +51,6 @@
     </div>
     <div class="span8">
         <div class="well well-small">
-            <c:set var="cart" value="${sessionScope.model}" />
             <h1>Thanh toán<small class="pull-right"><span>${cart.size()}</span> sản phẩm</small></h1>
             <hr class="soften">
             <ul class="info-error" >
@@ -140,6 +140,15 @@
     </div>
 </div>
 <script>
+    let list = [];
+    let arr = [];
+    <c:forEach var="rr" items="${cart}">
+        arr = [${rr.value.productModel.product_id}, ${rr.value.quantity}, ${rr.value.quantity * rr.value.productModel.product_price}];
+        list.push(arr);
+    </c:forEach>
+
+    console.log("It's: " + list);
+
     $('#btnCheckout').click(function () {
        let data = {};
        let formData = $('#formSubmit').serializeArray();
@@ -148,23 +157,13 @@
        });
        data["total"] = ${sessionScope.totalPrice};
        data["date"] = Date.parse((new Date()).toISOString());
-       let bilDetail = [];
 
-      /* $('#billTable > tbody > tr').each(function (index,tr) {
-           let rowObject = {};
-           //console.log(row.childNodes[0].val());
-           console.log(row.childNodes[1].value);
-           let count = 0;
-           $(this).find('td').each (function() {
-               count ++;
-               console.log($(this).context.innerText)
-
-           });
-       });*/
        let link = "/checkout/order-received?user_id=${USERMODEL.user_id}&date=" + data.date;
-        addBill(data);
-        //addBillDetail(billDetailData);
-        window.open(link);
+       //addBill(data);
+       //addBillDetail(billDetailData);
+
+       $('#btnCheckout').attr('href', link);
+       $('#btnCheckout').attr('target', '_self');
     });
 
     function addBill(data) {

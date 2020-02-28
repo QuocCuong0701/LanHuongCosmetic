@@ -32,6 +32,12 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
     }
 
     @Override
+    public void update(UserModel userModel) {
+        String sql = "UPDATE user SET user_email = ?, user_pass = ? WHERE user_id = ?";
+        update(sql, userModel.getUser_email(), userModel.getUser_pass(), userModel.getUser_id());
+    }
+
+    @Override
     public List<UserModel> findAll(Pageble pageble) {
         StringBuilder sql = new StringBuilder("SELECT * FROM user WHERE user_role = 1");
         if (pageble.getSorter() != null && StringUtils.isNotBlank(pageble.getSorter().getSortName()) && StringUtils.isNotBlank(pageble.getSorter().getSortBy())) {

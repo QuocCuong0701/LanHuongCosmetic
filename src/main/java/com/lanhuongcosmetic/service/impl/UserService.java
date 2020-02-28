@@ -24,6 +24,12 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public UserModel update(UserModel userModel) {
+        iUserDAO.update(userModel);
+        return iUserDAO.findOne(userModel.getUser_id());
+    }
+
+    @Override
     public void delete(int[] ids) {
         for (int id :ids) {
             iUserDAO.delete(id);

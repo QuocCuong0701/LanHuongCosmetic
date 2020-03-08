@@ -30,25 +30,19 @@ public class BillController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BillModel billModel = FormUtil.toModel(BillModel.class, req);
-        BillDetailModel billDetailModel = FormUtil.toModel(BillDetailModel.class, req);
         String view = "";
-        String bill_id = req.getParameter("bill_id");
         if (billModel.getType().equals(SystemConstant.LIST)) {
             Pageble pageble = new PageRequest(billModel.getPage(), billModel.getMaxPageItem(),
                     new Sorter(billModel.getSortName(), billModel.getSortBy()));
             billModel.setListResult(iBillService.findAll(pageble));
             billModel.setTotalItem(iBillService.getTotalItem());
             billModel.setTotalPage((int) Math.ceil((double) billModel.getTotalItem() / billModel.getMaxPageItem()));
-            if(bill_id!=null){
-                billDetailModel.setListResult(iBillDetailService.findBillDetailByBillId(Integer.parseInt(bill_id)));
-            }
             view = "/views/admin/bill/list.jsp";
         } else if (billModel.getType().equals(SystemConstant.EDIT)) {
             view = "/views/admin/bill/edit.jsp";
         }
         MessageUtil.showMessage(req);
         req.setAttribute(SystemConstant.MODEL, billModel);
-        req.setAttribute("billDetails", billDetailModel);
         RequestDispatcher rd = req.getRequestDispatcher(view);
         rd.forward(req, resp);
     }

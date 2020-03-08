@@ -58,7 +58,7 @@
                     <b class="arrow"></b>
                 </li>
                 <li>
-                    <a href="<c:url value="/admin-bill?type=list&page=1&maxPageItem=10&sortName=full_name&sortBy=asc"/>">
+                    <a href="<c:url value="/admin-bill?type=list&page=1&maxPageItem=10&sortName=date&sortBy=desc"/>">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Quản lý đơn hàng
                     </a>

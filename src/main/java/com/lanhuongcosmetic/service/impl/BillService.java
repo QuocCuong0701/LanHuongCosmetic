@@ -25,9 +25,9 @@ public class BillService implements IBillService {
     }
 
     @Override
-    public BillModel update(BillModel billModel) {
-        iBillDAO.update(billModel);
-        return iBillDAO.findOne(billModel.getBill_id());
+    public BillModel update(int bill_id) {
+        iBillDAO.update(bill_id);
+        return iBillDAO.findOne(bill_id);
     }
 
     @Override

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="APIurl" value="/api-admin-user"/>
-<c:url var ="RegistrationURL" value="/registration"/>
+<c:url var="APIurl" value="/api-admin-billDetail"/>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Thanh toán</title>
+    <title>Chi tiết hóa đơn</title>
 </head>
 <body>
 <c:set var="cart" value="${sessionScope.model}" />
@@ -87,22 +86,5 @@
         </div>
     </div>
 </div>
-<script>
-    function addBillDetail(data) {
-        $.ajax({
-            url: '${APIurl}',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            dataType: 'json',
-            success: function (result) {
-                console.log("SUCCESS" + result);
-            },
-            error: function (error) {
-                console.log("ERROR" + error);
-            }
-        });
-    }
-</script>
 </body>
 </html>

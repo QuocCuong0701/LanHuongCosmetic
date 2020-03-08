@@ -25,16 +25,15 @@ public class BillDAO extends AbstractDAO<BillModel> implements IBillDAO {
 
     @Override
     public int save(BillModel billModel) {
-        StringBuilder sql = new StringBuilder("INSERT INTO bill(user_id, full_name, total, address, phone, date, status) ");
-        sql.append("VALUES (?,?,?,?,?,?,?)");
-        return insert(sql.toString(), billModel.getUser_id(), billModel.getFull_name(), billModel.getTotal(), billModel.getAddress(),
+        String sql = "INSERT INTO bill(user_id, full_name, total, address, phone, date, status) VALUES (?,?,?,?,?,?,?)";
+        return insert(sql, billModel.getUser_id(), billModel.getFull_name(), billModel.getTotal(), billModel.getAddress(),
                 billModel.getPhone(), billModel.getDate(), 0);
     }
 
     @Override
-    public void update(BillModel billModel) {
+    public void update(int bill_id) {
         String sql = "UPDATE bill SET status = ? WHERE bill_id = ?";
-        update(sql, billModel.isStatus(), billModel.getBill_id());
+        update(sql, 1, bill_id);
     }
 
     @Override

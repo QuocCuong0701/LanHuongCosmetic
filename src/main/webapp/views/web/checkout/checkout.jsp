@@ -2,7 +2,6 @@
 <%@include file="/common/taglib.jsp"%>
 <c:url var="APIurl" value="/api-admin-bill"/>
 <c:url var="APIurl1" value="/api-admin-billDetail"/>
-<c:url var ="BillURL" value=""/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,7 +65,7 @@
                     <div style="background: white; height: 200px; border-radius: 4px;">
                         <div class="control-group">
                             <label class="control-label" style="margin-top: 10px">Họ và tên <sup>*</sup></label>
-                            <div class="controls" style="margin-top: 10px"><input type="text" placeholder="" name="full_name" value="Jack"></div>
+                            <div class="controls" style="margin-top: 10px"><input type="text" placeholder="Nguyễn Hồng N" name="full_name" value=""></div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Email <sup>*</sup></label>
@@ -74,11 +73,11 @@
                         </div>
                         <div class="control-group">
                             <label class="control-label">Số điện thoại <sup>*</sup></label>
-                            <div class="controls"><input type="text" placeholder="" name="phone" value="0333385398"></div>
+                            <div class="controls"><input type="text" placeholder="0123456789" name="phone" value=""></div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Địa chỉ nhận hàng <sup>*</sup></label>
-                            <div class="controls"><input type="text" placeholder="" name="address" value="Hà Nội"></div>
+                            <div class="controls"><input type="text" placeholder="Trúc Bạch, Ba Đình, Hà Nội" name="address" value=""></div>
                         </div>
                         <input type="hidden" name="user_id" value="${USERMODEL.user_id}" />
                     </div>
@@ -140,13 +139,6 @@
     </div>
 </div>
 <script>
-    let list = [];
-    let arr;
-    <c:forEach var="rr" items="${cart}">
-        arr = [${rr.value.productModel.product_id}, ${rr.value.quantity}, ${rr.value.quantity * rr.value.productModel.product_price}];
-        list.push(arr);
-    </c:forEach>
-
     $('#btnCheckout').click(function () {
        let data = {};
        let formData = $('#formSubmit').serializeArray();
@@ -157,11 +149,10 @@
        data["date"] = Date.parse((new Date()).toISOString());
 
        let link = "/checkout/order-received?user_id=${USERMODEL.user_id}&date=" + data.date;
-       //addBill(data);
-       //addBillDetail(billDetailData);
+       addBill(data);
 
-       $('#btnCheckout').attr('href', link);
        $('#btnCheckout').attr('target', '_self');
+       $('#btnCheckout').attr('href', link);
     });
 
     function addBill(data) {
@@ -172,7 +163,14 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                console.log("SUCCESS" + result);
+                let billDetail = {};
+                <c:forEach var="cart" items="${cart}">
+                    billDetail["bill_id"] = result.bill_id;
+                    billDetail["product_id"] = ${cart.value.productModel.product_id};
+                    billDetail["quantity"] = ${cart.value.quantity};
+                    billDetail["total"] = ${cart.value.quantity * cart.value.productModel.product_price};
+                    addBillDetail(billDetail);
+                </c:forEach>
             },
             error: function (error) {
                 console.log("ERROR" + error);
@@ -186,8 +184,8 @@
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
-            success: function (result) {
-                console.log("SUCCESS" + result);
+            success: function () {
+                console.log("Success");
             },
             error: function (error) {
                 console.log("ERROR" + error);

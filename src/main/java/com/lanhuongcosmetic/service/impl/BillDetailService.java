@@ -10,9 +10,15 @@ import java.util.List;
 public class BillDetailService implements IBillDetailService {
     @Inject
     private IBillDetailDAO iBillDetailDAO;
+
     @Override
-    public List<BillDetailModel> findBillDetailByBillId(int bil_id) {
-        return iBillDetailDAO.findBillDetailByBillId(bil_id);
+    public List<BillDetailModel> findBillDetailByBillId(int bill_id) {
+        return iBillDetailDAO.findBillDetailByBillId(bill_id);
+    }
+
+    @Override
+    public List<BillDetailModel> findAll() {
+        return iBillDetailDAO.findAll();
     }
 
     @Override

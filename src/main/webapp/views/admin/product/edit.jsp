@@ -118,8 +118,8 @@
     </div>
 </div>
 <script>
-	var editor = '';
-	var editor1 = '';
+	let editor = '';
+	let editor1 = '';
 	$(document).ready(function(){
 		editor = CKEDITOR.replace( 'product_description');
 	});
@@ -129,8 +129,8 @@
 
     $('#btnAddOrUpdateNew').click(function (e) {
         e.preventDefault();
-        var data = {};
-        var formData = $('#formSubmit').serializeArray();
+        let data = {};
+        let formData = $('#formSubmit').serializeArray();
         $.each(formData, function (i, v) {
             data[""+v.name+""] = v.value;
         });
@@ -138,8 +138,8 @@
         data["product_image"] = document.getElementById('product_image').defaultValue;
         data["product_description"] = editor.getData();
         data["product_detail"] = editor1.getData();
-        var product_id = $('#product_id').val();
-        if (product_id == "0") {
+        let product_id = $('#product_id').val();
+        if (product_id === "0") {
             addNew(data);
         } else {
             updateNew(data);
@@ -161,23 +161,6 @@
         });
     }
 
-    function chooseImage(evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-        var files = evt.target.files;
-        var file = files[0];
-        var fileReader = new FileReader();
-
-        fileReader.onload = function(progressEvent) {
-            var url = fileReader.result;
-            var myImg = document.getElementById("product_image");
-            $('#show_image').attr('src', progressEvent.target.result);
-            $('#product_image').attr('value', url);
-            myImg.src = url;
-        }
-        fileReader.readAsDataURL(file);
-    };
-
     function updateNew(data) {
         $.ajax({
             url: '${APIurl}',
@@ -192,6 +175,23 @@
             	window.location.href = "${ProductURL}?type=list&maxPageItem=10&page=1&message=error_system";
             }
         });
+    }
+
+    function chooseImage(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        let files = evt.target.files;
+        let file = files[0];
+        let fileReader = new FileReader();
+
+        fileReader.onload = function(progressEvent) {
+            let url = fileReader.result;
+            let myImg = document.getElementById("product_image");
+            $('#show_image').attr('src', progressEvent.target.result);
+            $('#product_image').attr('value', url);
+            myImg.src = url;
+        };
+        fileReader.readAsDataURL(file);
     }
 </script>
 </body>

@@ -38,8 +38,9 @@ public class BillAPI extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
-        BillModel billModel = HttpUtil.of(req.getReader()).toModel(BillModel.class);
-        billModel = iBillService.update(billModel);
+        String billId = req.getParameter("bill_id");
+        BillModel billModel;
+        billModel = iBillService.update(Integer.parseInt(billId));
         mapper.writeValue(resp.getOutputStream(), billModel);
     }
 

@@ -120,9 +120,10 @@
                                         <div class="controls" style="float: right">
                                             <button type="submit" class="shopBtn" style="width: 200px; height: 40px;display: none"><i class="icon-check"></i> THANH TOÁN</button>
                                             <c:if test="${not empty USERMODEL}">
-                                                <a class="btn-large shopBtn" id="btnCheckout" href="" style="width: 150px;">
+                                                <%--<a class="btn-large shopBtn" id="btnCheckout" href="" style="width: 150px;">
                                                     <i class="icon-check"></i> ĐẶT HÀNG
-                                                </a>
+                                                </a>--%>
+                                                <button id="btnCheckout" class="btn-large shopBtn">Đặt Hàng</button>
                                             </c:if>
                                             <c:if test="${empty USERMODEL}">
                                                 <p style="color: red"><i>Bạn cần đăng nhập để có thể đặt hàng.</i></p>
@@ -147,12 +148,10 @@
        });
        data["total"] = ${sessionScope.totalPrice};
        data["date"] = Date.parse((new Date()).toISOString());
-
-       let link = "/checkout/order-received?user_id=${USERMODEL.user_id}&date=" + data.date;
        addBill(data);
-
+        /*let link = "/checkout/order-received?user_id=${USERMODEL.user_id}&date=" + data.date;
        $('#btnCheckout').attr('target', '_self');
-       $('#btnCheckout').attr('href', link);
+       $('#btnCheckout').attr('href', link);*/
     });
 
     function addBill(data) {
@@ -171,6 +170,7 @@
                     billDetail["total"] = ${cart.value.quantity * cart.value.productModel.product_price};
                     addBillDetail(billDetail);
                 </c:forEach>
+                window.location.href = "/checkout/order-received?bill_id=" + result.bill_id;
             },
             error: function (error) {
                 console.log("ERROR" + error);

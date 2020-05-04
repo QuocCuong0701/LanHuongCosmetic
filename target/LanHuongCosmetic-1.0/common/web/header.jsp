@@ -34,9 +34,9 @@
             </a>
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="/trang-chu">Trang Chủ</a></li>
-                    <li class=""><a href="/product?page=1">Sản Phẩm</a></li>
-                    <li class=""><a href="/about-us">Giới Thiệu</a></li>
+                    <li class=""><a href="<c:url value="/trang-chu"/>">Trang Chủ</a></li>
+                    <li class=""><a href="<c:url value="/product?page=1"/>">Sản Phẩm</a></li>
+                    <li class=""><a href="<c:url value="/about-us"/>">Giới Thiệu</a></li>
                     <li class=""><a href="#">Liên Hệ</a></li>
                 </ul>
                 <form action="#" class="navbar-search pull-left">
@@ -81,6 +81,25 @@
                                 </form>
                             </div>
                         </li>
+                        <%--<li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
+                            <div class="dropdown-menu">
+                                <form class="form-horizontal loginFrm">
+                                    <div class="control-group">
+                                        <input type="text" class="span2" id="inputEmail" placeholder="Email">
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="password" class="span2" id="inputPassword" placeholder="Password">
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox"> Remember me
+                                        </label>
+                                        <button type="submit" class="shopBtn btn-block">Sign in</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>--%>
                     </c:if>
                 </ul>
             </div>

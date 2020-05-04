@@ -36,36 +36,31 @@
             </div>
         </div>
         <!-- Products -->
-        <c:forEach var="item" items="${categoriesLimit4.listResult}">
-            <div class="well well-small">
-                <h3 id="category_id_${item.category_id}" style="text-transform: capitalize">${item.category_name}</h3>
+        <div class="well well-small">
+                <h3 id="category_id_${category1.category_id}" style="text-transform: capitalize">${category1.category_name}</h3>
                 <hr class="soften"/>
                 <div class="row-fluid">
                     <ul class="thumbnails">
-                        <c:forEach var="products" items="${productLimit6.listResult}">
-                            <c:if test="${productSize == 0}">
-                                <p><strong>Không có sản phẩm nào.</strong></p>
-                            </c:if>
-                            <c:if test="${productSize > 0}">
-                                <input type="hidden" value="${item.category_id}" name="category_id"/>
+                        <c:forEach var="list1" items="${list1.listResult}">
+                                <input type="hidden" value="${category1.category_id}" name="category_id"/>
                                 <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" href="<c:url value="/product-detail?product_id=${products.product_id}"/>" title="add to cart">
+                                        <a class="zoomTool" href="<c:url value="/product-detail?product_id=${list1.product_id}"/>" title="add to cart">
                                             <span class="icon-search"></span> Xem sản phẩm
                                         </a>
-                                        <a href="<c:url value="/product-detail?product_id=${products.product_id}"/>">
-                                            <c:if test="${products.product_image == null}">
+                                        <a href="<c:url value="/product-detail?product_id=${list1.product_id}"/>">
+                                            <c:if test="${list1.product_image == null}">
                                                 <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
                                             </c:if>
-                                            <c:if test="${products.product_image != null}">
-                                                <img src="<c:url value="${products.product_image}"/>" alt="" style="width: 207px; height: 267px;">
+                                            <c:if test="${list1.product_image != null}">
+                                                <img src="<c:url value="${list1.product_image}"/>" alt="" style="width: 207px; height: 267px;">
                                             </c:if>
                                         </a>
                                         <div class="caption cntr">
-                                            <p style="height: 40px; text-transform: capitalize;overflow: hidden;"> ${products.product_name}</p>
-                                            <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${products.product_price} &#8363;</strong></p>
+                                            <p style="height: 40px; text-transform: capitalize;overflow: hidden;"> ${list1.product_name}</p>
+                                            <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${list1.product_price} &#8363;</strong></p>
                                             <h4>
-                                                <a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${products.product_id}"/>" title="add to cart">
+                                                <a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${list1.product_id}"/>" title="add to cart">
                                                 <i class="icon-shopping-cart"></i> Thêm vào giỏ </a>
                                             </h4>
                                                 <%--<div class="actionList">
@@ -76,117 +71,127 @@
                                         </div>
                                     </div>
                                 </li>
-                            </c:if>
                         </c:forEach>
-                        <%--<c:forEach var="products" items="${productLimit2.listResult}">
-                            <c:if test="${productSize2 == 0}">
-                                <p><strong>Không có sản phẩm nào.</strong></p>
-                            </c:if>
-                            <c:if test="${productSize2 > 0}">
-                                <input type="hidden" value="${item.category_id}" name="category_id"/>
-                                <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="<c:url value="/product-detail?product_id=${products.product_id}"/>" title="add to cart">
-                                            <span class="icon-search"></span> Xem sản phẩm
-                                        </a>
-                                        <a href="<c:url value="/product-detail?product_id=${products.product_id}"/>">
-                                            <c:if test="${products.product_image == null}">
-                                                <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
-                                            </c:if>
-                                            <c:if test="${products.product_image != null}">
-                                                <img src="<c:url value="${products.product_image}"/>" alt="" style="width: 207px; height: 267px;">
-                                            </c:if>
-                                        </a>
-                                        <div class="caption cntr">
-                                            <p style="height: 40px; text-transform: capitalize;overflow: hidden;"> ${products.product_name}</p>
-                                            <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${products.product_price} &#8363;</strong></p>
-                                            <h4>
-                                                <a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${products.product_id}"/>" title="add to cart">
-                                                    <i class="icon-shopping-cart"></i> Thêm vào giỏ </a>
-                                            </h4>
-                                            <br class="clr">
-                                        </div>
-                                    </div>
-                                </li>
-                            </c:if>
-                        </c:forEach>
-                        <c:forEach var="products" items="${productLimit3.listResult}">
-                            <c:if test="${productSize3 == 0}">
-                                <p><strong>Không có sản phẩm nào.</strong></p>
-                            </c:if>
-                            <c:if test="${productSize3 > 0}">
-                                <input type="hidden" value="${item.category_id}" name="category_id"/>
-                                <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="<c:url value="/product-detail?product_id=${products.product_id}"/>" title="add to cart">
-                                            <span class="icon-search"></span> Xem sản phẩm
-                                        </a>
-                                        <a href="<c:url value="/product-detail?product_id=${products.product_id}"/>">
-                                            <c:if test="${products.product_image == null}">
-                                                <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
-                                            </c:if>
-                                            <c:if test="${products.product_image != null}">
-                                                <img src="<c:url value="${products.product_image}"/>" alt="" style="width: 207px; height: 267px;">
-                                            </c:if>
-                                        </a>
-                                        <div class="caption cntr">
-                                            <p style="height: 40px; text-transform: capitalize;overflow: hidden;"> ${products.product_name}</p>
-                                            <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${products.product_price} &#8363;</strong></p>
-                                            <h4>
-                                                <a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${products.product_id}"/>" title="add to cart">
-                                                    <i class="icon-shopping-cart"></i> Thêm vào giỏ </a>
-                                            </h4>
-                                                &lt;%&ndash;<div class="actionList">
-                                                    <a class="pull-left" href="#">Add to Wish List </a>
-                                                    <a class="pull-left" href="#"> Add to Compare </a>
-                                                </div>&ndash;%&gt;
-                                            <br class="clr">
-                                        </div>
-                                    </div>
-                                </li>
-                            </c:if>
-                        </c:forEach>
-                        <c:forEach var="products" items="${productLimit4.listResult}">
-                            <c:if test="${productSize4 == 0}">
-                                <p><strong>Không có sản phẩm nào.</strong></p>
-                            </c:if>
-                            <c:if test="${productSize4 > 0}">
-                                <input type="hidden" value="${item.category_id}" name="category_id"/>
-                                <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
-                                    <div class="thumbnail">
-                                        <a class="zoomTool" href="<c:url value="/product-detail?product_id=${products.product_id}"/>" title="add to cart">
-                                            <span class="icon-search"></span> Xem sản phẩm
-                                        </a>
-                                        <a href="<c:url value="/product-detail?product_id=${products.product_id}"/>">
-                                            <c:if test="${products.product_image == null}">
-                                                <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
-                                            </c:if>
-                                            <c:if test="${products.product_image != null}">
-                                                <img src="<c:url value="${products.product_image}"/>" alt="" style="width: 207px; height: 267px;">
-                                            </c:if>
-                                        </a>
-                                        <div class="caption cntr">
-                                            <p style="height: 40px; text-transform: capitalize;overflow: hidden;"> ${products.product_name}</p>
-                                            <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${products.product_price} &#8363;</strong></p>
-                                            <h4>
-                                                <a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${products.product_id}"/>" title="add to cart">
-                                                    <i class="icon-shopping-cart"></i> Thêm vào giỏ </a>
-                                            </h4>
-                                                &lt;%&ndash;<div class="actionList">
-                                                    <a class="pull-left" href="#">Add to Wish List </a>
-                                                    <a class="pull-left" href="#"> Add to Compare </a>
-                                                </div>&ndash;%&gt;
-                                            <br class="clr">
-                                        </div>
-                                    </div>
-                                </li>
-                            </c:if>
-                        </c:forEach>--%>
                     </ul>
                 </div>
             </div>
-        </c:forEach>
-
+        <div class="well well-small">
+            <h3 id="category_id_${category2.category_id}" style="text-transform: capitalize">${category2.category_name}</h3>
+            <hr class="soften"/>
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    <c:forEach var="list2" items="${list2.listResult}">
+                            <input type="hidden" value="${category2.category_id}" name="category_id"/>
+                            <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
+                                <div class="thumbnail">
+                                    <a class="zoomTool" href="<c:url value="/product-detail?product_id=${list2.product_id}"/>" title="add to cart">
+                                        <span class="icon-search"></span> Xem sản phẩm
+                                    </a>
+                                    <a href="<c:url value="/product-detail?product_id=${list2.product_id}"/>">
+                                        <c:if test="${list2.product_image == null}">
+                                            <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
+                                        </c:if>
+                                        <c:if test="${list2.product_image != null}">
+                                            <img src="<c:url value="${list2.product_image}"/>" alt="" style="width: 207px; height: 267px;">
+                                        </c:if>
+                                    </a>
+                                    <div class="caption cntr">
+                                        <p style="height: 40px; text-transform: capitalize;overflow: hidden;"> ${list2.product_name}</p>
+                                        <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${list2.product_price} &#8363;</strong></p>
+                                        <h4>
+                                            <a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${list2.product_id}"/>" title="add to cart">
+                                                <i class="icon-shopping-cart"></i> Thêm vào giỏ </a>
+                                        </h4>
+                                            <%--<div class="actionList">
+                                                <a class="pull-left" href="#">Add to Wish List </a>
+                                                <a class="pull-left" href="#"> Add to Compare </a>
+                                            </div>--%>
+                                        <br class="clr">
+                                    </div>
+                                </div>
+                            </li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </div>
+        <div class="well well-small">
+            <h3 id="category_id_${category4.category_id}" style="text-transform: capitalize">${category4.category_name}</h3>
+            <hr class="soften"/>
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    <c:forEach var="products" items="${list4.listResult}">
+                            <input type="hidden" value="${category4.category_id}" name="category_id"/>
+                            <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
+                                <div class="thumbnail">
+                                    <a class="zoomTool" href="<c:url value="/product-detail?product_id=${products.product_id}"/>" title="add to cart">
+                                        <span class="icon-search"></span> Xem sản phẩm
+                                    </a>
+                                    <a href="<c:url value="/product-detail?product_id=${products.product_id}"/>">
+                                        <c:if test="${products.product_image == null}">
+                                            <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
+                                        </c:if>
+                                        <c:if test="${products.product_image != null}">
+                                            <img src="<c:url value="${products.product_image}"/>" alt="" style="width: 207px; height: 267px;">
+                                        </c:if>
+                                    </a>
+                                    <div class="caption cntr">
+                                        <p style="height: 40px; text-transform: capitalize;overflow: hidden;"> ${products.product_name}</p>
+                                        <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${products.product_price} &#8363;</strong></p>
+                                        <h4>
+                                            <a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${products.product_id}"/>" title="add to cart">
+                                                <i class="icon-shopping-cart"></i> Thêm vào giỏ </a>
+                                        </h4>
+                                            <%--<div class="actionList">
+                                                <a class="pull-left" href="#">Add to Wish List </a>
+                                                <a class="pull-left" href="#"> Add to Compare </a>
+                                            </div>--%>
+                                        <br class="clr">
+                                    </div>
+                                </div>
+                            </li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </div>
+        <div class="well well-small">
+            <h3 id="category_id_${category3.category_id}" style="text-transform: capitalize">${category3.category_name}</h3>
+            <hr class="soften"/>
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    <c:forEach var="list3" items="${list3.listResult}">
+                            <input type="hidden" value="${category3.category_id}" name="category_id"/>
+                            <li class="span4" style="margin-left: 0; margin-right: 1.42%;">
+                                <div class="thumbnail">
+                                    <a class="zoomTool" href="<c:url value="/product-detail?product_id=${list3.product_id}"/>" title="add to cart">
+                                        <span class="icon-search"></span> Xem sản phẩm
+                                    </a>
+                                    <a href="<c:url value="/product-detail?product_id=${list3.product_id}"/>">
+                                        <c:if test="${list3.product_image == null}">
+                                            <img src="<c:url value="/template/web/img/noimages.png"/>" alt="" style="width: 207px; height: 267px;">
+                                        </c:if>
+                                        <c:if test="${list3.product_image != null}">
+                                            <img src="<c:url value="${list3.product_image}"/>" alt="" style="width: 207px; height: 267px;">
+                                        </c:if>
+                                    </a>
+                                    <div class="caption cntr">
+                                        <p style="height: 40px; text-transform: capitalize;overflow: hidden;"> ${list3.product_name}</p>
+                                        <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${list3.product_price} &#8363;</strong></p>
+                                        <h4>
+                                            <a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${list3.product_id}"/>" title="add to cart">
+                                                <i class="icon-shopping-cart"></i> Thêm vào giỏ </a>
+                                        </h4>
+                                            <%--<div class="actionList">
+                                                <a class="pull-left" href="#">Add to Wish List </a>
+                                                <a class="pull-left" href="#"> Add to Compare </a>
+                                            </div>--%>
+                                        <br class="clr">
+                                    </div>
+                                </div>
+                            </li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </div>
         <!--
         Featured Products
         -->

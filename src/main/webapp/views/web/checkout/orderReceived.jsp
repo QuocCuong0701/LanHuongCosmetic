@@ -46,17 +46,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="rows" items="${cart}">
+                <c:forEach var="billDetail" items="${listBillDetail.listResult}">
                     <tr>
-                        <td><span style="color: red;font-style: italic;">${rows.value.productModel.product_name}</span><strong> × ${rows.value.quantity}</strong></td>
-                        <td><span><c:out value="${rows.value.quantity * rows.value.productModel.product_price}"/> &#8363;</span></td>
+                        <td><span style="color: red;font-style: italic;">${billDetail.product_name}</span><strong> × ${billDetail.quantity}</strong></td>
+                        <td><span><fmt:formatNumber pattern="###,###" value="${billDetail.quantity * billDetail.product_price}"/> đ</span></td>
                     </tr>
                 </c:forEach>
                 </tbody>
                 <tfoot>
                     <tr>
                         <th>Thành tiền:</th>
-                        <td><span><c:out value="${sessionScope.totalPrice}"/> &#8363;</span></td>
+                        <td><span><c:out value="${BillModel.total}"/> &#8363;</span></td>
                     </tr>
                     <tr style="display: none">
                         <th>Phương thức thanh toán:</th>
@@ -64,7 +64,7 @@
                     </tr>
                     <tr>
                         <th>Tổng cộng:</th>
-                        <td><strong><c:out value="${sessionScope.totalPrice}"/> &#8363;</strong></td>
+                        <td><strong><c:out value="${BillModel.total}"/> &#8363;</strong></td>
                     </tr>
                 </tfoot>
             </table>

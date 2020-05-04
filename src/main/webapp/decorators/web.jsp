@@ -60,7 +60,8 @@
 
 <!-- Placed at the end of the document so the pages load faster -->
 
-<script src="<c:url value='/template/web/js/jquery.js'/>"></script>
+<%--<script src="<c:url value='/template/web/js/jquery.js'/>"></script>--%>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="<c:url value='/template/web/js/bootstrap.min.js'/>"></script>
 <script src="<c:url value='/template/web/js/jquery.easing-1.3.min.js'/>"></script>
 <script src="<c:url value='/template/web/js/jquery.scrollTo-1.4.3.1-min.js'/>"></script>

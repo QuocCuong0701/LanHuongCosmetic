@@ -1,7 +1,9 @@
 package com.lanhuongcosmetic.controller.web;
 
+import com.lanhuongcosmetic.model.BillDetailModel;
 import com.lanhuongcosmetic.model.BillModel;
 import com.lanhuongcosmetic.model.CategoryModel;
+import com.lanhuongcosmetic.service.IBillDetailService;
 import com.lanhuongcosmetic.service.IBillService;
 import com.lanhuongcosmetic.service.ICategoryService;
 import com.lanhuongcosmetic.utils.FormUtil;
@@ -27,6 +29,9 @@ public class CheckoutController extends HttpServlet {
     @Inject
     private IBillService iBillService;
 
+    @Inject
+    private IBillDetailService iBillDetailService;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
@@ -37,7 +42,7 @@ public class CheckoutController extends HttpServlet {
         if (req.getRequestURI().endsWith("checkout")) {
             rd = req.getRequestDispatcher("/views/web/checkout/checkout.jsp");
         } else if (req.getRequestURI().endsWith("order-received")) {
-            String user_id = req.getParameter("user_id");
+            /*String user_id = req.getParameter("user_id");
             String date = req.getParameter("date");
 
             long milisec = Long.parseLong(date);
@@ -48,10 +53,21 @@ public class CheckoutController extends HttpServlet {
             if (billModel == null) {
                 ts = new Timestamp(milisec + 1000);
                 billModel = iBillService.findOneByIdAndDate(Integer.parseInt(user_id), Timestamp.valueOf(df.format(ts)));
-            }
+            }*/
+
+            String bill_id = req.getParameter("bill_id");
+            BillModel billModel = iBillService.findOne(Integer.parseInt(bill_id));
+
+            BillDetailModel billDetailModel = new BillDetailModel();
+            billDetailModel.setListResult(iBillDetailService.findBillDetailByBillId(Integer.parseInt(bill_id)));
+
+            req.setAttribute("listBillDetail", billDetailModel);
             req.setAttribute("BillModel", billModel);
+
             rd = req.getRequestDispatcher("/views/web/checkout/orderReceived.jsp");
-            //httpSession.invalidate();
+            httpSession.removeAttribute("model");
+            httpSession.removeAttribute("totalQuantity");
+            httpSession.removeAttribute("totalPrice");
         }
         rd.forward(req, resp);
     }

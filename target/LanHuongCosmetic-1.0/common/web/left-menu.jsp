@@ -18,8 +18,8 @@
                     <strong>Tổng Giỏ Hàng
                         <span class="badge badge-warning pull-right" style="line-height:18px;">
                             <c:if test="${cart == null}">0 </c:if>
-                            <c:if test="${cart != null}">${sessionScope.totalPrice} </c:if>
-                            &#8363;
+                            <c:if test="${cart != null}"><fmt:formatNumber pattern="###,###" value="${sessionScope.totalPrice}"/></c:if>
+                             đ
                         </span>
                     </strong>
                 </a>
@@ -42,7 +42,7 @@
                 </a>
                 <div class="caption">
                     <h4><a class="defaultBtn" href="<c:url value="/product-detail?product_id=5"/>">Xem</a> <span
-                            class="pull-right">100000 &#8363;</span></h4>
+                            class="pull-right"><fmt:formatNumber pattern="###,###" value="100000"/> đ</span></h4>
                 </div>
             </div>
         </li>

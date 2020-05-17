@@ -100,20 +100,20 @@
                                     <tr>
                                         <input type="hidden" value="${rows.value.productModel.product_id}"/>
                                         <td>${rows.value.productModel.product_name}</td>
-                                        <td>${rows.value.productModel.product_price} &#8363;</td>
+                                        <td><fmt:formatNumber pattern="###,###" value="${rows.value.productModel.product_price}"/> đ</td>
                                         <td>${rows.value.quantity}</td>
-                                        <td><c:out value="${rows.value.quantity * rows.value.productModel.product_price}"/> &#8363;</td>
+                                        <td><fmt:formatNumber pattern="###,###" value="${rows.value.quantity * rows.value.productModel.product_price}"/> đ</td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th style="width: 70%" colspan="2">Thành tiền:</th>
-                                    <td colspan="2"><c:out value="${sessionScope.totalPrice}"/> &#8363;</td>
+                                    <td colspan="2"><fmt:formatNumber pattern="###,###" value="${sessionScope.totalPrice}"/> đ</td>
                                 </tr>
                                 <tr>
                                     <th colspan="2">Tổng cộng:</th>
-                                    <td colspan="2"><strong><c:out value="${sessionScope.totalPrice}"/> &#8363;</strong> </td>
+                                    <td colspan="2"><strong><fmt:formatNumber pattern="###,###" value="${sessionScope.totalPrice}"/> đ </strong> </td>
                                 </tr>
                                 <tr >
                                     <td colspan="4">
@@ -149,9 +149,6 @@
        data["total"] = ${sessionScope.totalPrice};
        data["date"] = Date.parse((new Date()).toISOString());
        addBill(data);
-        /*let link = "/checkout/order-received?user_id=${USERMODEL.user_id}&date=" + data.date;
-       $('#btnCheckout').attr('target', '_self');
-       $('#btnCheckout').attr('href', link);*/
     });
 
     function addBill(data) {

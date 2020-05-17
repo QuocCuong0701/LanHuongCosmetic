@@ -34,7 +34,7 @@
                                         </a>
                                         <div class="caption cntr">
                                             <p style="height: 40px; text-transform: capitalize; overflow: hidden;">${products.product_name}</p>
-                                            <p style="color: #ff0000;"><i class="icon-money"></i><strong> ${products.product_price} &#8363;</strong></p>
+                                            <p style="color: #ff0000;"><i class="icon-money"></i><strong> <fmt:formatNumber pattern="###,###" value="${products.product_price}"/> đ</strong></p>
                                             <h4><a class="shopBtn" href="<c:url value="/cart?act=add&product_id=${products.product_id}"/>" title="add to cart"><i class="icon-shopping-cart"></i> Thêm vào giỏ </a></h4>
                                                 <%--<div class="actionList">
                                                     <a class="pull-left" href="#">Add to Wish List </a>

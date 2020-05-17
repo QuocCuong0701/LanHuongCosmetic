@@ -10,6 +10,24 @@ insert into category(category_name) values('trị nám'),('trang điểm mặt')
 ,('xịt khoáng'),('sữa dưỡng'),('chống nẻ'),('nước hoa hồng'),('dưỡng tay'),('trang điểm mắt')
 ,('muối tắm'),('tẩy lông');
 
+insert into product(product_name,product_price,category_id) values
+('Kem Tan Mỡ Bụng -Slimming Cream',100000,2),
+('Tẩy trang gạo thefaceshop 320ml',100000,2),
+('Sữa dưỡng thể chống nắng Hatomugi uv care',100000,2),
+('Sữa tắm truyền trắng Medifferent in shower tone',100000,2),
+('Kem ủ trắng da toàn thân G9 skin whtie – 200ml',100000,2),
+('Mặt nạ ngủ vàng 24K - 24K Gold Sleeping Mask',100000,3),
+('Tẩy trang hồng Bioderma Crealine H20-500ml- Pháp',100000,3),
+('KEM TẨY LÔNG VEET- PHÁP TỰ TIN TỎA SÁNG',100000,3),
+('KEM TẨY LÔNG VELVET CHIẾT XUẤT HOA CÚC',100000,3),
+('Tẩy da chết mặt Organic shop Organic coffee',100000,3),
+('Bộ dưỡng trắng da toàn thân Body Silk',100000,4),
+('BÔNG TẨY TRJANG MIẾNG MINISO- NHẬT BẢN',100000,4),
+('Kem Nám – Tàn nhang dưỡng trắng da – Nhật Bản',100000,4),
+('KEM ĐẶC TRỊ NÁM DR FACE (1 CẶP 2 LỌ NGÀY VÀ ĐÊM)',100000,4),
+('KEM TRỊ NÁM , DƯỠNG DA CAO CẤP SHUI JING BAI-',100000,4),
+('KEM ĐẶC TRỊ NÁM DR FACE (1 CẶP 2 LỌ NGÀY VÀ ĐÊM)',100000,4);
+
 insert into product(product_name,product_price,category_id) values('SON DƯỠNG MÔI INNISFREE GLOW TINT LIP',100000,1);
 insert into product(product_name,product_price,category_id) values('Viên uống trắng da Glutathione Ever Collagen',100000,1),
 ('Tinh chất dưỡng da chiết xuất trà xanh innisfree the',100000,1),
@@ -57,8 +75,8 @@ where product_id=1;
 
 insert into cart(product_id,total,quantity) values(1,200000,2), (2,200000,1);
 
-insert into bill(user_id,full_name,total,address,phone,date,status) values(2,'Lily Collins',200000,'Hà Nội','0123456789',curdate(),0),
-(3,'Emma Watson',200000,'Đà Nẵng','0987654321',curdate(),1);
+insert into bill(user_id,full_name,total,address,phone,date,status) values(2,'Lily Collins',200000,'Hà Nội','0123456789',0),
+(3,'Emma Watson',200000,'Đà Nẵng','0987654321',1);
 
 insert into bill_detail(bill_id,product_id,quantity,total) values(1,1,2,200000),(1,2,2,200000),
 (2,2,1,200000);

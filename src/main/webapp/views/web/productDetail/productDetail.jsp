@@ -40,7 +40,7 @@
                         <hr class="soft">
                         <form class="form-horizontal qtyFrm">
                             <div class="control-group">
-                                <label class="control-label"><span style="color: #ff0000;font-size: 20px;font-weight: 600;">${productDetail.product_price} &#8363;</span></label>
+                                <label class="control-label"><span style="color: #ff0000;font-size: 20px;font-weight: 600;"><fmt:formatNumber pattern="###,###" value="${productDetail.product_price}"/> đ</span></label>
                                 <div class="controls">
                                     <input type="number" class="span6" placeholder="Số lượng">
                                 </div>

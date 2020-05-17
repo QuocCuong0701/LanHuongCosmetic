@@ -43,12 +43,12 @@
                                     </td>
                                     <td><img width="50px" src="<c:url value="${rows.value.productModel.product_image}"/>" alt=""></td>
                                     <td>${rows.value.productModel.product_name}</td>
-                                    <td>${rows.value.productModel.product_price} &#8363;</td>
+                                    <td><fmt:formatNumber pattern="###,###" value="${rows.value.productModel.product_price}"/> đ</td>
                                     <td>
                                         <input id="quantity" size="16" type="number" value="${rows.value.quantity}"
                                                style="max-width:34px" placeholder="Sl." name="quantity"/>
                                     </td>
-                                    <td><c:out value="${rows.value.quantity * rows.value.productModel.product_price}"></c:out> &#8363;</td>
+                                    <td><fmt:formatNumber pattern="###,###" value="${rows.value.quantity * rows.value.productModel.product_price}"/> đ</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -73,7 +73,7 @@
                         <tbody>
                         <tr>
                             <th style="width: 70%">Thành tiền:</th>
-                            <td><c:out value="${sessionScope.totalPrice}"/> &#8363;</td>
+                            <td><fmt:formatNumber pattern="###,###" value="${sessionScope.totalPrice}"/> đ</td>
                         </tr>
                         <tr>
                             <th>Tổng cộng:</th>

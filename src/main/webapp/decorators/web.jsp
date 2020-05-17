@@ -36,7 +36,7 @@
                         0 Sản phẩm - <span class="badge badge-warning"> 0 &#8363;</span>
                     </c:if>
                     <c:if test="${cart != null}">
-                        ${cart.size()} Sản phẩm - <span class="badge badge-warning">${sessionScope.totalPrice} &#8363;</span>
+                        ${cart.size()} Sản phẩm - <span class="badge badge-warning"><fmt:formatNumber pattern="###,###" value="${sessionScope.totalPrice}"/> đ</span>
                     </c:if>
                 </a>
             </div>

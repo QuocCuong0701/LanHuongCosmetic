@@ -10,6 +10,9 @@
     <packaging>war</packaging>
 
     <properties>
+        <processTypes>
+            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+        </processTypes>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <jsp.api.version>2.0</jsp.api.version>
@@ -92,8 +95,6 @@
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
-
-
     </dependencies>
 
     <build>
@@ -106,6 +107,11 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>3.0.2</version>
             </plugin>
         </plugins>
     </build>
